@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Field set</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">System</a></li>
+                                <li class="breadcrumb-item active">Field Set</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <div class="flex-row-between">
+                            <div style="display:flex;justify-content:flex-start;margin-bottom:10px">
+                                <label for="horizontal-firstname-input" class="col-form-label">Application Name</label>
+                                <input class="form-control width-200" type="text" id="kw">
+                                <label for="horizontal-firstname-input" class="col-form-label ml-20">Type</label>
+                                <select class="form-select width-120" id="type">
+                                    <option value="all">All</option>
+                                    <option value="Type1">Type1</option>
+                                    <option value="Type2">Type2</option>
+                                    <option value="Type3">Type3</option>
+                                    <option value="Type4">Type4</option>
+                                    <option value="Type5">Type5</option>
+                                </select>
+                                <label for="horizontal-firstname-input" class="col-form-label ml-20">Status</label>
+                                <select class="form-select width-120" id="ons">
+                                    <option value="1">Enabled</option>
+                                    <option value="0">Disabled</option>
+                                </select>
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm" id="btnSearch">
+                                    <i class="fas fa-search"></i> SEARCH
+                                </button>
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm ml-15 width-150" id="btnNew">
+                                    <i class="fas fa-plus-circle"></i> NEW
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex-col-between" style="height:calc(100vh - 235px);overflow-y:auto">
+                            <div id="tblArea">
+
+                            </div>
+                            <div id="paginationArea">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mtt">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="myModalFrame" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/zsetList.js"></script>
+</body>
+</html>

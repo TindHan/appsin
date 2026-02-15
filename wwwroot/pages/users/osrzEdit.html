@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="modal-content">
+        <div class="modal-body">
+           
+            <form id="itemInfo">
+                <div class="row" style="height:320px">
+                    <div class="mb-3 col-6">
+                        <label for="example-text-input" class="form-label">Authorize Object Type</label>
+                        <select class="form-select" id="objType" name="objType">
+                            <option value="0">---Please Choose---</option>
+                            <option value="unit">organization</option>
+                            <option value="dept">department</option>
+                            <option value="post">postion</option>
+                            <option value="psn">person</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-6">
+                        <label for="example-text-input" class="form-label">Authorize Object List</label>
+                        <select class="form-select" id="objID" name="objID">
+                            <option value="0">---Please Choose Authorize Object Type First---</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-12" id="orgType">
+                        <label for="example-text-input" class="form-label">Choose Role</label>
+                        <select class="form-select" id="roleID" name="roleID">
+                            <option value="0">---Please Choose---</option>
+                        </select>
+                    </div>
+                    <div class="h-25"></div>
+                </div>
+            </form>
+           
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+    <script src="../../js/zosrzEdit.js"></script>
+</body>
+</html>

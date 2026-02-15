@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Application Data</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Application</a></li>
+                                <li class="breadcrumb-item active">Apps Data</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="overflow-y-auto overflow-x-hidden" style="height: calc(100vh - 60px);">
+                    <div class="row">
+                        <div class="card border-bottom col-md-6">
+                            <div class="card-header text-center"><h3 class="card-title mb-0">Apps Redirect</h3></div>
+                            <div class="card-body">
+                                <div id="appUse" class=" h-300"></div>
+                            </div>
+                        </div>
+                        <div class="card border-bottom col-md-6">
+                            <div class="card-header text-center"><h3 class="card-title mb-0">Apis Invoking</h3></div>
+                            <div class="card-body">
+                                <div id="appApi" class=" h-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card border-bottom col-md-12">
+                            <div class="card-header text-center"><h3 class="card-title mb-0">Login Data</h3></div>
+                            <div class="card-body">
+                                <div id="loginData" class=" h-300"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+
+            <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mtt">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="myModalFrame" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/echarts.min.js"></script>
+    <script src="../../js/zappData.js"></script>
+
+</body>
+</html>

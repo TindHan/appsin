@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body mb-2" >
+                        <div style="overflow-y:auto;overflow-x:hidden;height:calc(100vh - 45px)">
+                            <form id="psnInfo">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="example-text-input" class="form-label">Name</label>
+                                        <input class="form-control" type="text" value="" id="psnName" name="psnName">
+                                        <label for="example-text-input" class="form-label">Nickname</label>
+                                        <input class="form-control" type="text" value="" id="aliaName" name="aliaName">
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <img id="imgAvatar" src="/img/noavatar.png" height="120" />
+                                        <br />
+                                        <input id="imgFile" style="display:none" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" />
+                                        <a href="#" id="imgUp" class="small">Upload</a>
+                                    </div>
+
+                                    <div class="mb-3  col-md-6">
+                                        <label id="poid-label" for="example-text-input" class="form-label">ID Type</label>
+                                        <select class="form-select" id="idType" name="idType">
+                                            <option value="0">---Please Choose---</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">ID No.</label>
+                                        <input class="form-control" type="text" value="" id="idNo" name="idNo">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label id="poid-label" for="example-text-input" class="form-label">Sex</label><br />
+                                        <select class="form-select" id="psnSex" name="psnSex">
+                                            <option value="0">---Please Choose---</option>
+                                            <option value="male">male</option>
+                                            <option value="female">female</option>
+                                            <option value="other">other</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="example-text-input" class="form-label">Nationality</label>
+                                        <input class="form-control" type="text" value="" id="psnNational" name="psnNational">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Cellphone</label>
+                                        <input class="form-control" type="text" value="" id="psnCellphone" name="psnCellphone">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Email</label>
+                                        <input class="form-control" type="text" value="" id="psnEmail" name="psnEmail">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">IM</label>
+                                        <input class="form-control" type="text" value="" id="psnIM" name="psnIM">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Birthday</label>
+                                        <input class="form-control" type="date" value="" id="psnBirthday" name="psnBirthday">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Join Date</label>
+                                        <input class="form-control" type="date" value="" id="psnJoinday" name="psnJoinday">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Start Work Date</label>
+                                        <input class="form-control" type="date" value="" id="psnJobday" name="psnJobday">
+                                    </div>
+                                    <div class="mb-3  col-md-6" name="orgdiv">
+                                        <label for="example-text-input" class="form-label">Organazation</label>
+                                        <select class="form-control" id="unitID" name="unitID">
+                                            <option value="0">---Please Choose---</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6" name="orgdiv">
+                                        <label for="example-text-input" class="form-label">Department</label>
+                                        <select class="form-select" id="deptID" name="deptID">
+                                            <option value="0">---Please Choose Organazation First---</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6" name="orgdiv">
+                                        <label for="example-text-input" class="form-label">Position</label>
+                                        <select class="form-select" id="postID" name="postID">
+                                            <option value="0">---Please Choose Department First---</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Code</label>
+                                        <input class="form-control" type="text" value="" id="psnCode" name="psnCode">
+                                    </div>
+                                    <div class="mb-3  col-md-6" name="orgdiv">
+                                        <label for="example-text-input" class="form-label">Type</label>
+                                        <select class="form-select" id="onType" name="onType">
+                                            <option value="0">---Please Choose---</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Enabled</label>
+                                        <select class="form-select" id="loginStatus" name="loginStatus">
+                                            <option value="1">True</option>
+                                            <option value="0">False</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Username</label>
+                                        <input class="form-control" type="text" value="" id="psnUsername" name="psnUsername">
+                                    </div>
+                                    <div class="mb-3  col-md-6" name="orgdiv">
+                                        <label for="example-text-input" class="form-label">User Password</label>
+                                        <input class="form-control" type="text" value="" id="psnPassword" name="psnPassword">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Memo1</label>
+                                        <input class="form-control" type="text" value="" id="psnMemo1" name="psnMemo1">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Memo2</label>
+                                        <input class="form-control" type="text" value="" id="psnMemo2" name="psnMemo2">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Memo3</label>
+                                        <input class="form-control" type="text" value="" id="psnMemo3" name="psnMemo3">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Memo4</label>
+                                        <input class="form-control" type="text" value="" id="psnMemo4" name="psnMemo4">
+                                    </div>
+                                    <div class="mb-3  col-md-6">
+                                        <label for="example-text-input" class="form-label">Memo5</label>
+                                        <input class="form-control" type="text" value="" id="psnMemo5" name="psnMemo5">
+                                    </div>
+                                    <input type="hidden" id="psnID" name="psnID" />
+                                </div>
+                            </form>
+                        </div>
+ 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                        <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zpsnEdit.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+</body>
+</html>

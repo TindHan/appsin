@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="padding:25px">
+    <div id="top" class="h-25">&nbsp;</div>
+    <h3>APPSIN跨域异构应用一体化集成系统介绍</h3>
+    <div style="border: 1px solid darkgrey; background-color: #F0F0F0;padding:15px">
+        该文档分为三部分：<br />
+        <a href="#c1">1.系统基本情况介绍</a><br />
+        <a href="#c2">2.系统主要功能介绍</a><br />
+        <a href="#c3">3.系统技术文档说明</a><br />
+        请点击以上三个部分跳转到对应内容. <br />
+        我计划在2026年6月30日前发布新的版本，整个系统为我独立设计和开发，因此可能存在很多问题，如果你有任何建议或发现了任何bug，欢迎联系我。 <br />
+        我的Email：apassenger@msn.com。
+    </div>
+    <div id="c1" class="mt-5">
+        <h4>1.系统基本情况介绍</h4>
+        <div style="padding-left:15px">
+            <p>
+                该系统定位于1000用户以下的企业部门级应用，其最大特点是可以使用任何开发语言、数据库、中间件、服务器开发和部署该系统的定制化应用，并获得一体化系统的使用体验。该套程序已经
+                完成了企业信息管理系统所需的基本的组织管理、用户管理、权限管理、日志管理，登录登出等基本功能，企业只需使用熟悉的技术栈开发和部署自己所需要的实际业务功能，并将应用注册到
+                APPSIN主程序中，便可在APPSIN系统内使用自己开发的集成应用。
+            </p>
+            <p>
+                该系统设计初衷是解决在目前人工智能能力框架下，进行快速开发定制化应用满足企业信息化需求。目前人工智能虽然具备较强的开发能力，但是对于企业信息管理系统这样业务复杂度较高的需求，
+                目前还无法进行有效的理解和开发。该系统已经完成底层业务逻辑复杂和通用部分，企业在使用本系统定制开发时，只需关注实际业务部分的开发，大幅度简化业务复杂度，充分利用目前人工智能提供的
+                开发能力，从而快速构建起适合自身需要的信息系统。
+            </p>
+            <p>该系统包含APPSIN主程序和集成应用演示程序两套程序文件，本套程序是主程序。两套程序均为英文版，目前尚未支持多语言。</p>
+            <p>APPSIN主程序前端采用bootstrap和jquery开发，后端采用.NET10开发，前后端集成为一套程序，数据库采用MS SQL SERVER 2016，开发工具为Visual Studio 2022。</p>
+            <p>APPSIN集成应用演示程序采用React和Antd开发，后端采用.NET10开发，前后端为独立的程序，数据库采用My SQL 8.0.18，开发工具为Visual studio 2022。</p>
+            <p>
+                APPSIN主程序包含两个功能组，一个是业务功能，主要包含桌面应用、组织管理、用户管理、权限管理、审批流驱动引擎和日志管理等功能；业务功能可以使用全权限用户tindhan登录，密码是Tind123!@#;
+                另外一个是集成应用管理控制台，主要包含集成应用注册、集成应用菜单管理、集成应用日志、集成应用使用统计等功能。两者有不同的登录入口，登录界面下方有切换登录页面的链接，集成应用控制台的用户默认为五个，分别是admin1到admin5，默认密码为admin123!@#。
+                业务功能登录入口为IP:PORT/pages/users/ulogin.html；集成应用管理控制台登录入口IP:PORT/pages/console/alogin.html
+            </p>
+            <p>集成应用演示程序包含两个演示应用，一个是活动报名，包含活动管理、活动报名管理；另一个是请假管理，包含请假申请，请假审批查询（审批过程采用调用主程序的审批流驱动引擎来实现）</p>
+            <p>
+                主程序和集成应用程序之间采用HTML的iframe组件来实现页面的集成，主程序中，当点击集成应用的菜单时，主程序会开启iframe组件，并在该组件中请求提前注册好的集成应用菜单上的地址。
+            </p>
+            <p>
+                主程序与集成应用之间的集成机制如下：
+            </p>
+            <p>
+                1、集成应用需要在APPSIN主程序进行注册，获取应用ID、应用密码、应用加密密钥，集成应用可以通过加密应用ID、应用密码和时间戳获得集成接口访问授权密钥（以下简称授权密钥），同时在APPSIN主程序中的“集成应用菜单”注册好第三方应用菜单，第三方应用菜单将会显示在APPSIN主程序中。
+            </p>
+            <p>
+                2、当用户点击APPSIN主程序的集成应用菜单时，APPSIN主程序的ifame组件会根据前期在APPSIN主程序中注册的网络地址自动加载集成应用的web界面，同时通过get方式传递给集成的应用界面一个密钥（以下简称握手密钥）。
+            </p>
+            <p>
+                3、集成应用的界面被访问时，获取到该握手密钥，和授权密钥一起，向APPSIN主程序的握手接口进行请求获取用户身份信息。
+            </p>
+            <p>
+                4、APPSIN主程序的握手接口接收请求后，会验证授权密钥和握手密钥，如果验证通过，会向集成应用返回使用系统的用户身份，集成应用可以利用该用户的身份进行集成应用内的业务流程和权限控制。
+            </p>
+            <p>
+                5、如果集成应用需要更多的用户信息以及用户的相关信息，比如组织机构、授权信息等数据来保障集成应用的运行，可以通过访问APPSIN主程序的组织机构信息接口、用户数据权限接口获取更多数据。
+            </p>
+            <p>
+                6、集成应用在使用过程中，定时向APPSIN主程序接口更新用户的使用时间，APPSIN主程序会根据用户的使用时间更新用户身份的过期时间，如果集成应用长时间未更新，且用户也长时间（60分钟）未操作APPSIN主程序的功能，用户身份会自动过期，需要重新登录后才能使用。
+            </p>
+            <p>
+                7、集成应用不可以自行进行页面的跳转，需要通过js代码向集成平台的框架页发送包含跳转页面地址的消息，由集成平台完成跳转。集成应用跳转仅能跳转本应用的页面，无法跳转到其他跨域的页面。
+            </p>
+            <p>
+                8、APPSIN主程序提供的接口可在控制台页面中的Apis--Api list菜单中查看。
+            </p>
+            <p>
+                9、数据库文件在程序文件中的DB文件夹中，你可以直接将数据库文件附加到MS SQL SERVER中，然后通过修改appsettings.json中的connectString数据库连接字符串来实现程序与数据库的连接。
+            </p>
+            <p>
+                10、该程序文件中，数据库文件中包含演示数据，如果你希望清理演示数据，请使用DB中的initialize.sql来清理所有演示数据。
+            </p>
+        </div>
+
+        <a href="#top">回到顶部</a>
+    </div>
+
+    <div id="c2" class="mt-5">
+        <h4>2.系统主要功能介绍</h4>
+        <div style="padding-left:15px">
+            <p>
+                新闻公告：该功能为APPSIN主系统独立应用，可以向所有用户发布新闻公告，支持按生效时间自动显示和隐藏，支付附件下载，发布新闻公告可以在Admin Center的Notice功能中进行发布和管理。
+            </p>
+            <p>
+                通知消息：该功能包含两部分，一部分是APPSIN主程序的审批流驱动引擎的审批消息通知，另一部分支持集成应用通过接口向特定用户发送通知，同时也支持集成应用的跳转url，即调用接口时传入
+                集成应用的url，用户在查看通知消息时，可以通过点击链接跳转到集成应用的相关详情页面。
+            </p>
+            <p>
+                任务管理：该功能为APPSIN主系统独立应用，用于用户记录和更新个人工作任务列表和工作进度信息，便于管理自己的工作安排。
+            </p>
+            <p>
+                组织管理：组织管理包含单位、部门、岗位的管理以及对应的基本信息管理，单位、部门支持设定负责人或 负责岗位，用于审批流驱动引擎识别对应的负责人，但不应用于相关人员的数据权限范围识别。
+            </p>
+            <p>
+                人员管理：系统用户的个人信息管理以及异动管理，可灵活设置用户的状态进行用户登录的控制，支持入职、调动、离职等用户常规异动业务，实现用户身份和权限的灵活管理。
+            </p>
+            <p>
+                菜单角色：用户授权的要素之一，用于功能菜单权限的管理，既包含APPSIN主程序菜单，也包含集成应用的菜单。该功能只管理到菜单层级权限，不涉及按钮权限。
+            </p>
+            <p>
+                数据角色：用户授权的要素之一，用于用户管理的组织范围的管理，支持固定数据范围和动态数据范围两种授权方式，固定数据范围是指定固定的组织机构范围，动态数据范围即根据
+                用户的所在部门和单位来确定可以查看和操作哪个组织范围内的数据。
+            </p>
+            <p>
+                角色绑定：角色绑定支持按人员、岗位、部门、单位四个维度进行绑定，可以同时绑定菜单角色和数据角色，如果一个用户绑定了多个角色，或者一个用户既有用户绑定，也有对应的岗位、部门、单位绑定，
+                那该用户的权限是多个角色的合集。
+            </p>
+            <p>
+                角色查询：从人员、岗位、部门、单位四个维度查询已经绑定了那些角色，以及对应的权限。
+            </p>
+            <p>
+                审批流配置：配置审批流模板，用户集成应用进行审批时，调用审批流创建接口，创建审批流实例，会从审批流模板复制相应的流程并自动弃用审批流程，因此审批流实例创建后修改审批流模板不会改变已经生成的审批流流程。
+                该审批流一但有驳回操作，则整个审批流结束并标注驳回状态。审批流程支持条件分支，分支条件仅在有多个分支流程时有效，如果某审批节点只有后续一个节点，无论设置分支条件与否都不生效。
+            </p>
+            <p>
+                审批流监控：查看正在执行中的、已被驳回的、流程异常的、已经完成审批的审批流实例的历史审批过程。
+            </p>
+            <p>
+                应用数据分析：主要包含三个图表：集成应用菜单跳转统计；APPSIN主程序接口调用统计；用户登录数量即次数统计。
+            </p>
+            <p>
+                应用管理：创建和管理集成应用，配置集成应用的协议和域名，获取集成应用的Application SID，Application Secret，Application pubKey等信息。
+            </p>
+            <p>
+                应用菜单：创建和管理集成应用在APPSIN主程序中的菜单，创建后，可在APPSIN主程序的权限管理中对用户进行授权。
+            </p>
+            <p>
+                应用日志：用户使用集成应用的日志，包含用户、集成应用、菜单项、使用时间、是否调用成功等信息。
+            </p>
+            <p>
+                接口列表：APPSIN主程序对外提供的接口信息，包含接口用途、调用地址、调用所需参数、返回数据格式等。
+            </p>
+            <p>
+                接口授权：除握手接口外，其他所有接口必须经过授权才能被集成应用使用，此功能可以维护集成应用调用APPSIN主程序对外接口的权限。
+            </p>
+            <p>
+                接口调用日志：不同的集成应用调用APPSIN主程序对外接口的日志查询。
+            </p>
+            <p>
+                参照管理：参照项列表的管理，可以新增或管理自定义的参照以及参照下的代码项，最多支持两层代码。
+            </p>
+            <p>
+                用户日志：用户登录登出系统的日志查询。
+            </p>
+        </div>
+        <a href="#top">回到顶部</a>
+    </div>
+
+    <div id="c3" class="mt-5">
+        <h4>
+            3.系统技术文档说明
+        </h4>
+        <div style="padding-left:15px">
+            <p>APPSIN主程序接口说明：</p>
+            <table id="dt1" class="table table-bordered dt-responsive table-striped w-100">
+                <thead class="table-secondary table-header-fixed">
+                    <tr>
+                        <th>No.</th>
+                        <th>Api EN Name</th>
+                        <th>Api CN Name</th>
+                        <th>Api Description</th>
+                        <th>Api Address</th>
+                        <th>Api Code</th>
+                        <th>Api Argus</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hand Shake</td>
+                        <td>请求握手接口</td>
+                        <td>The app need to timed reset Token, to keep the system loged in.</td>
+                        <td>\api\Appserv\handShake</td>
+                        <td>10101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the key attached to url.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Reset Token</td>
+                        <td>更新会话状态接口</td>
+                        <td>The app need to timed reset Token, to keep the system loged in.</td>
+                        <td>\api\Appserv\resetToken</td>
+                        <td>10101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>One person Inforamtion</td>
+                        <td>查询人员简单信息</td>
+                        <td>To get one person basic information</td>
+                        <td>\api\Appserv\getPsnInfo</td>
+                        <td>11101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Person's full Infomation</td>
+                        <td>查询个人全量信息</td>
+                        <td>Get person's full Infomation, including contact information</td>
+                        <td>\api\Appserv\getPsnInfoFull</td>
+                        <td>11102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Search person</td>
+                        <td>搜索人员</td>
+                        <td>Search someone's information by keyword/name/code</td>
+                        <td>\api\Appserv\getPsnSearch</td>
+                        <td>11103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the keyword/name/code.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>All Organiztion Information</td>
+                        <td>查询组织全量信息</td>
+                        <td>To get all organization data, including organazation additional information</td>
+                        <td>\api\Appserv\getAllOrgList</td>
+                        <td>12101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be "";
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Organization Information</td>
+                        <td>查询某个组织信息</td>
+                        <td>To get basic organazation information</td>
+                        <td>\api\Appserv\getOrgInfo</td>
+                        <td>12102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique organization PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Person data authorization</td>
+                        <td>用户数据权限查询</td>
+                        <td>To get person authorization data, just part information, doesn't including contact information.</td>
+                        <td>\api\Appserv\getDataOsrz</td>
+                        <td>20102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Get all field set</td>
+                        <td>查询参照列表</td>
+                        <td>Get all field set, not including field items</td>
+                        <td>\api\Appserv\getFieldSet</td>
+                        <td>20103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be empty,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Get field items</td>
+                        <td>查询某个参照下的代码</td>
+                        <td>Get all field items, it is upper level is fieldset.</td>
+                        <td>\api\Appserv\getFieldItem</td>
+                        <td>20104</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique field set PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Add message</td>
+                        <td>新增通知消息</td>
+                        <td>Send users some work message, including a url for further task.</td>
+                        <td>\api\Appserv\addMsg</td>
+                        <td>20105</td>
+                        <td>
+                            { "aukey": "string", "args": "string", "msgData": [ { "objType": "string", "objID": 0, "msgTitle": "string", "msgContent": "string", "msgUrl": "string", "createTime": "dateTime", "expireTime": "dateTime", "msgDesc": "string" } ] }<br />
+                            aukey is a authorized token, args can be empty,  msgData is message content list,
+                            objType is the user types that your message want to send, include 4 options: psn, post, dept, unit, all. They represent person, position, department, organization, all users.
+                            objID is the associated ID of the objType. After you determine the objType of the message you want to send, it is the object ID to which the specific user receiving the message belongs.
+                            msgTitle is the message title that show in the message list, which must be less than 60 characters.
+                            msgContent is the message content that show in the message detail page, please do not include url.
+                            msgUrl is the link which show in the message detail page, click it will redirect your application page. but do not include domain, because appsin will add domain before your url automatically.
+                            expireTime is the time your message cann't be seen, after this time, the users won't see the message any more.
+                            msgDesc is the memo of the message which will not be shown to users, it can be empty.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Create Flow</td>
+                        <td>创建审批流实例</td>
+                        <td>For create flow </td>
+                        <td>\api\AppServ\createFlow</td>
+                        <td>30101</td>
+                        <td>
+                            { "aukey": "string", "psnPK": "string", "createPsnPK": "string", "templatePK": "string", "flowName": "string", "flowDesc": "string", "contentUrl": "string", "int1Value": 0, "str1Value": "string", "date1Value": "dateTime" }<br />
+                            aukey is the authorized token,
+                            psnPK is the user unique ID that is applicant,
+                            createPsnPK is the user who create this flow,
+                            templatePK is the flow template unique ID,
+                            flowName is the flow name which must be less than 80 characters.
+                            flowDesc is the flow description which must be less than 150 characters.
+                            contentUrl is the specific approval content page that can be viewed on the approval page, but do not include domain, because appsin will add domain before your url automatically.
+                            int1Value is the integer condition value which used to determine which flow branch should to follow.
+                            str1Value is the string condition value which used to determine which flow branch should to follow.
+                            date1Value is the datetime condition value which used to determine which flow branch should to follow.
+                            Generally, int1Value, str1Value, date1Value, you just need to select one to send value, and the others can be empty, because only one can be chosen to set the approval flow condition.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Get flow template list</td>
+                        <td>查询审批流模板</td>
+                        <td>For geting flow list</td>
+                        <td>\api\AppServ\getFlowTemplateList</td>
+                        <td>30102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be empty,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Get flow template nodes</td>
+                        <td>查询审批流模板审批节点</td>
+                        <td>For geting flow nodes</td>
+                        <td>\api\AppServ\getFlowTemplateNodes</td>
+                        <td>30103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique flow template PK
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Get flow instance</td>
+                        <td>查询审批流实例</td>
+                        <td>For geting flow instance detail</td>
+                        <td>\api\AppServ\getFlowInstance</td>
+                        <td>30104</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique flow instance PK.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                授权密钥获得方式：
+            </p>
+            <p style="text-indent:2em">
+                授权密钥是集成应用请求APPSIN主程序接口服务的必备字段，用以验证集成应用的合法身份和调用接口的权限。
+            </p>
+            <p style="text-indent:2em">
+                a.在APPSIN主程序中注册集成应用时，可以获取集成应用的Application SID、Application Secret 、Application PubKey，其中Application pubKey就是密钥加密的公钥。
+            </p>
+            <p style="text-indent:2em">
+                b.制作授权密钥时，首先生成秒级的时间戳，然后按照Application SID + ';'+ Application Secret + ';'+ 时间戳的格式进行字符串拼接，注意分号必须为半角。
+            </p>
+            <p style="text-indent:2em">
+                c.利用获取到的Application pubKey对拼接的字符串进行RSA加密获得加密后的密钥。
+            </p>
+            <p style="text-indent:2em">
+                d.将Application SID附加到加密后的密钥前方，形成最终的授权密钥，即接口所需的aukey。
+            </p>
+            <p style="text-indent:2em">
+                C#的代码示例如下：
+            </p>
+            <pre>
+            <code>
+                    //获取授权密钥aukey函数
+                    public static string genAukey()
+                    {
+                        string appSID = "52021156";
+                        string appSecret = "wGmt9o5ucmzLpszm";
+                        long timestamp = GetCurrentTimestampSeconds();
+                        string pubkey = "MEgCQQDOGE80bY9nK8Akxw+CXmsHqF7y/kPMbAim/M9hm3w0TN/h1cFONdo7OaWF3hBRAaTYwbdTTiTQjvgi7j31ExbdAgMBAAE=";
+                        string aukey = appSID + Encrypt(pubkey, appSID + ";" + appSecret + ";" + timestamp);
+                        return aukey;
+                    }
+
+                    //获取时间戳函数
+                    public static long GetCurrentTimestampSeconds()
+                    {
+                        DateTime startTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                        DateTime currentTime = DateTime.UtcNow;
+                        TimeSpan timeSpan = currentTime - startTime;
+                        return (long)timeSpan.TotalSeconds;
+                    }
+
+                    //RSA加密函数
+                    public static string Encrypt(string publicKey, string data)
+                    {
+                        using (var rsa = new RSACryptoServiceProvider())
+                        {
+                            rsa.ImportRSAPublicKey(Convert.FromBase64String(publicKey), out _);
+                            var bytes = Encoding.UTF8.GetBytes(data);
+                            var encryptedBytes = rsa.Encrypt(bytes, RSAEncryptionPadding.Pkcs1);
+                            return Convert.ToBase64String(encryptedBytes);
+                        }
+                    }
+                 </code>
+             </pre>
+        </div>
+        <a href="#top">回到顶部</a>
+    </div>
+
+</body>
+</html>

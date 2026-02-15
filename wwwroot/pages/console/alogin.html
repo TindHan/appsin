@@ -1,0 +1,114 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login | APPSIN - MIS APPLICATION INTEGRATION PLATFORM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+        <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+        <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+        <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="auth-page">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-xxl-3 col-lg-4 col-md-5">
+                        <div class="auth-full-page-content d-flex p-sm-5 p-4">
+                            <div class="w-100">
+                                <div class="d-flex flex-column h-100">
+                                    <div class="mt-5 mb-4 mb-md-5 text-center">
+                                        <a href="#" class="d-block auth-logo">
+                                            <img src="/img/logo.svg" alt="" height="28"> <span class="logo-txt">APPSIN CONSOLE</span>
+                                        </a>
+                                    </div>
+                                    <div class="auth-content my-auto">
+                                        <div class="text-center">
+                                            <h5 class="mb-0">Welcome Back !</h5>
+                                            <p class="text-muted mt-2">This entrance is for administrator</p>
+                                        </div>
+                                        <form class="mt-4 pt-2" action="index.html">
+                                            <div class="mb-3">
+                                                <label class="form-label">Administrator Name</label>
+                                                <input id="txtAdminName" type="text" class="form-control" placeholder="Enter username">
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="flex-grow-1">
+                                                        <label class="form-label">Administrator Password</label>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group auth-pass-inputgroup">
+                                                    <input id="txtAdminPwd" type="password" class="form-control" autocomplete="off" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3" id="captchaArea" style="display:none">
+                                                <label class="form-label">Captcha</label>
+                                                <div class="flex-row-between">
+                                                    <input id="txtCaptcha" type="text" class="form-control" placeholder="Enter captcha">
+                                                    <img id="captchaImg" title="Click me to change captcha" class="width-150" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <button id="btnLogin" class="btn btn-primary w-100 waves-effect waves-light" type="button">Log In</button>
+                                            </div>
+                                        </form>
+
+                                        <div class="mt-5 pt-2 text-center">
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item">
+                                                    <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
+                                                        <i class="mdi mdi-frequently-asked-questions"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="mt-2 text-center">
+                                            <a class="text-muted mb-0">If you are not administrator, please click the "Go to user platform" link below!</a>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 mt-md-5 text-center">
+                                        <p class="mb-0">
+                                            © APPSIN 2026. Crafted with <i class="mdi mdi-heart text-danger"></i> by TindHan
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 text-center">
+                                        <a style="color:lightgrey" href="../users/ulogin.html">Go to user platform</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-9 col-lg-8 col-md-7">
+                        <div class="auth-bg pt-md-5 p-4 d-flex">
+                            <div class="bg-overlay bg-primary"></div>
+                            <ul class="bg-bubbles">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../../js/common/jquery.min.js"></script>
+        <script src="../../js/common/bootstrap.bundle.min.js"></script>
+        <script src="../../js/common/sweetalert2.min.js"></script>
+        <script src="../../js/common/common_method.js"></script>
+        <script src="../../js/common/jsencrypt.min.js"></script>
+        <script src="../../js/common/fp.js"></script>
+        <script src="../../js/zalogin.js"></script>
+
+    </body>
+
+</html>

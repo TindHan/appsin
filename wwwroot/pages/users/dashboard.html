@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Dashboard" name="description">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/task.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid overflow-y-scroll overflow-x-hidden" style="height: calc(100vh - 10px);width:100%">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-h-100">
+                        <div class="card-body border">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Working days</span>
+                                    <h4 class="mb-3">
+                                        <span id="number1" class="counter-value" data-target="">0</span>
+                                    </h4>
+                                </div>
+
+                                <div class="col-4">
+                                    <img src="../../img/ico-a.png" width="50" />
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge badge-soft-success text-success"><i class="bx bx-smile"></i></span>
+                                <span class="ms-1 text-muted font-size-13">Since the day you start to work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-h-100">
+                        <div class="card-body border">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Number of logins</span>
+                                    <h4 class="mb-3">
+                                        <span id="number2" class="counter-value" data-target="">0</span>
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    <img src="../../img/ico-c.png" width="50" />
+
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge badge-soft-info text-info"><i class="bx bx-happy-beaming"></i></span>
+                                <span class="ms-1 text-muted font-size-13">Since the day you start to use this system</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-h-100">
+                        <div class="card-body border">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Number of all tasks</span>
+                                    <h4 class="mb-3">
+                                        <span id="number3" class="counter-value" data-target="">0</span>
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    <img src="../../img/ico-b.png" width="50" />
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge badge-soft-info text-info"><i class="bx bx-wink-smile"></i></span>
+                                <span class="ms-1 text-muted font-size-13">Since the day you start to record your tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-h-100">
+                        <div class="card-body border">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Number of completed tasks</span>
+                                    <h4 class="mb-3">
+                                        <span id="number4" class="counter-value" data-target="">0</span>
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    <img src="../../img/ico-d.png" width="50" />
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge badge-soft-success text-success"><i class="bx bx-happy-alt"></i></span>
+                                <span class="ms-1 text-muted font-size-13">Since the day you start to complete tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="align-items-center d-flex justify-content-between">
+                            <h5>Messages</h5>
+                            <a href="myMessages.html">More...</a>
+                        </div>
+                        <div class="px-0 border" style="height: 375px;">
+                            <div class="tab-content">
+                                <ul class="list-unstyled" id="msgArea">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="align-items-center d-flex justify-content-between">
+                            <h5>Notices</h5>
+                            <a href="myNotices.html">More...</a>
+                        </div>
+
+                        <div class="px-0 border" style="height: 375px;">
+                            <ul id="noticeArea">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="py-4">
+                    <div class="card w-100">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>Task Management</h5>
+
+                            <div>
+                                <a href="#" id="btnOpenAddModal">New</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="myTasks.html">More...</a>
+                            </div>
+
+                        </div>
+                        <div class="card-body p-0 border">
+                            <div id="taskList" class="list-group list-group-flush m-3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Create Task</h5></div>
+                        <div class="modal-body">
+                            <input id="taskTitle" class="form-control mb-2" placeholder="Task Title">
+                            <textarea id="taskContent" class="form-control mb-2" rows="2" placeholder="Task Description"></textarea>
+                            <label class="form-label mb-1">Deadline</label>
+                            <input type="date" id="taskDeadline" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="btnSaveTask">Create</button>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="msgntsModel" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Detail</h5></div>
+                        <div class="modal-body">
+                            <div class="p-5"><h5 class=" text-center" id="objTitle">12325</h5></div>
+                            <div class="p-2 d-flex justify-content-between border-bottom">
+                                <h6 class=" text-center" id="objSender"></h6>
+                                <h6 class=" text-center" id="objTime"></h6>
+                            </div>
+                            <div class="p-2 mt-4 mb-2 overflow-y-auto h-max-350" id="objContent">
+
+                            </div>
+                            <div class="p-2" id="objUrl" style="display:none">
+
+                            </div>
+                            <div class="p-2" id="objFile" style="display:none">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title" id="detailTitle">Task Details</h5></div>
+                        <div class="modal-body">
+                            <p><strong>Description:</strong> <span id="detailDesc"></span></p>
+                            <div class="mb-2">
+                                <strong>Deadline:</strong>
+                                <span id="detailDeadline"></span>
+                            </div>
+                            <button class="btn btn-link text-danger p-0 mb-3" id="btnCloseTaskText">Close Task</button>
+
+                            <p><strong>Status:</strong> <span id="detailStatus"></span></p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar" id="detailProgressBar" style="width:0%">0%</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Add Progress Note:</label>
+                                <textarea id="progressNote" class="form-control mb-2" rows="2" placeholder="Enter progress note"></textarea>
+                                <div class="input-group">
+                                    <span class="input-group-text">Progress %</span>
+                                    <input type="number" id="progressValue" class="form-control" min="0" max="100" value="0">
+                                    <button class="btn btn-outline-primary width-200" id="btnAddProgress">Save</button>
+                                </div>
+                            </div>
+
+                            <h6>Progress History</h6>
+                            <ul class="list-group list-group-flush small" style="max-height:300px;overflow-y:auto" id="progressHistory"></ul>
+                        </div>
+                        <div class="modal-footer d-flex">
+                            <button id="closeDetail" class="btn btn-outline-info" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="taskID" />
+    <input type="hidden" id="taskPro" />
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/dashboard.js"></script>
+
+</body>
+
+</html>

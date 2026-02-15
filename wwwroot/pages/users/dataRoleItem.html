@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="modal-content">
+        <div class="modal-body">
+            <form id="itemInfo">
+                <input type="hidden" id="roleID" name="roleID" />
+                <div class="row" style="height:220px">
+                    <div class="mb-3 col-6">
+                        <label for="example-text-input" class="form-label">Choose Bind Type</label>
+                        <select class="form-select" id="bindType" name="bindType">
+                            <option value="0">---Please Choose---</option>
+                            <option value="static">Static organization</option>
+                            <option value="dynamic">Dynamic organization</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-6">
+                        <label for="example-text-input" class="form-label">Include or exclude Sub_organization</label>
+                        <select class="form-select" id="subOrgIn" name="subOrgIn">
+                            <option value="0">---Please Choose---</option>
+                            <option value="1">Include</option>
+                            <option value="-1">Exclude</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-12" id="orgType" style="display:none">
+                        <label for="example-text-input" class="form-label">Choose Dynamic Type</label>
+                        <select class="form-select" id="dynamicOrg" name="dynamicOrg">
+                            <option value="0">---Please Choose---</option>
+                            <option value="unit">The unit which user work in</option>
+                            <option value="dept">The department which user work in</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-12" id="orgList" style="display:none">
+                        <label for="example-text-input" class="form-label">Choose Organization</label>
+                        <select class="form-select" id="staticOrgID" name="staticOrgID">
+                            <option value="0">---Please Choose---</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+    </div>
+
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zdataRoleItem.js"></script>
+</body>
+</html>

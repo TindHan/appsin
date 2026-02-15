@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Flow Monitor</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="flowConfig.html">Admin Center</a></li>
+                                <li class="breadcrumb-item active">Flow Monitor</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="flex-row-between">
+                            <div style="display:flex;justify-content:flex-start;margin-bottom:10px">
+                                <label for="horizontal-firstname-input" class="col-form-label">Flow Template</label>
+                                <select class="form-select width-120" id="template">
+                                    <option value="">All</option>
+                                </select>
+                                <label for="horizontal-firstname-input" class="col-form-label ml-20">Status</label>
+                                <select class="form-select width-120" id="status">
+                                    <option value="1">Enabled</option>
+                                    <option value="-1">Disabled</option>
+                                </select>
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm" id="btnSearch">
+                                    <i class="fas fa-search"></i> SEARCH
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex-col-between">
+                            <div id="tblArea" style="height:calc(100vh - 125px);overflow-y:auto">
+
+                            </div>
+                            <div id="paginationArea">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Detail</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="divInfo" style="overflow-y: auto; height:500px; margin-bottom: 10px;">
+                                <div class="pt-3 pb-3 boder-bottom-lightgrey">
+                                    Current Approver:
+                                    <ul id="nextApprover" class="mt-2"></ul>
+                                </div>
+                                <div class="pt-3 pb-3 boder-bottom-lightgrey">
+                                    Approve History:
+                                    <ul id="apprHistory" class="mt-2"></ul>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Instance Name<span id="instanceName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Instance PK<span id="instancePK" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Instance Description<span id="instanceDesc" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">APP Name <span id="appName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">APP Domain<span id="domain" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Content Url<span id="contentUrl" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Template Name<span id="templateName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Creator Name<span id="createPsnName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Creator PK<span id="createPsnPK" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Applicant Name<span id="psnName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Applicant PK<span id="psnPK" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Create Time<span id="createTime" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Current Done Node<span id="doneNodeName" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Is End<span id="isEnd" class="float-end font-size-14"></span></li>
+                                    <li class="pt-3 pb-3 boder-bottom-lightgrey">Is Passed<span id="isPass" class="float-end font-size-14"></span></li>
+                                </ul>
+                                <div class="p-1">
+                                    <ul id="apprHistory"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" id="toClose">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="viewModel" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Detail</h5></div>
+                        <div class="modal-body">
+                            <iframe id="fview" class="h-500 w-100"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/flowMonitor.js"></script>
+</body>
+</html>

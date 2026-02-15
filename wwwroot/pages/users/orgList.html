@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/zTreeStyle.css" rel="stylesheet" />
+    <link href="../../css/metroStyle.css" rel="stylesheet" />
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Persons</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Persons</a></li>
+                                <li class="breadcrumb-item active">Organization</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="flex-row-between">
+                        <h6 class="mt-2">Organization</h6>
+                        <div class="form-check form-switch pt-2" dir="ltr">
+                            <input type="checkbox" class="form-check-input" id="chkCancel">
+                            <label class="form-check-label" for="customSwitchsizemd">Show canceled organization</label>
+                        </div>
+                    </div>
+                    <div class="border rounded" style="height:calc(100vh - 100px)">
+                        <ul id="orgTree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div>
+                        <div style="display: flex; justify-content: flex-start; margin-bottom: 4px; ">
+                            <button type="button" class="btn btn-soft-success waves-effect waves-light" id="toAdd">
+                                <i class="fas fa-plus-circle"></i> NEW
+                            </button>
+                            <button type="button" class="btn btn-soft-primary waves-effect waves-light ml-10" id="toEdit">
+                                <i class="far fa-edit"></i> EDIT
+                            </button>
+                            <button type="button" class="btn btn-soft-info waves-effect waves-light ml-10" id="toCancel">
+                                <i class="fas fa-times"></i> CANCEL
+                            </button>
+                            <button type="button" class="btn btn-soft-pink waves-effect waves-light ml-10" id="toDel">
+                                <i class="fas fa-trash-alt"></i> DELETE
+                            </button>
+                        </div>
+
+                        <div class="p-3 border rounded" style="height:calc(100vh - 108px)">
+                            <table class="w-100">
+                                <tr>
+                                    <td class="p-2 width-150 text-right text-uppercase text-table-title">Name</td>
+                                    <td class="p-2 w-33" id="orgNameShow"></td>
+                                    <td class="p-2 width-150 text-right text-table-title">Type</td>
+                                    <td class="p-2" id="orgTypeShow"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 width-150 text-right text-table-title">Code</td>
+                                    <td class="p-2 w-33" id="orgCodeShow"></td>
+                                    <td class="p-2 width-150 text-right text-table-title">Parent</td>
+                                    <td class="p-2" id="parentOrgShow"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 width-150 text-right text-table-title">Start</td>
+                                    <td class="p-2 w-33" id="startTimeShow"></td>
+                                    <td class="p-2 width-150 text-right text-table-title">End</td>
+                                    <td class="p-2" id="endTimeShow"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 width-150 text-right text-table-title">Position In Charge</td>
+                                    <td class="p-2 w-33" id="adminPostShow"></td>
+                                    <td class="p-2 width-150 text-right text-table-title">Supervisor</td>
+                                    <td class="p-2" id="adminPsnShow"></td>
+                                </tr>
+                            </table>
+
+                            <div class="p-3">
+                                <span class="font-size-12 ml-20">
+                                    Tip 1: Supervisor has priority, if supervisor is set, the position in charge will not take effect .
+                                </span>
+                                <br />
+                                <span class="font-size-12 ml-20">
+                                    Tip 2: This configuration only affects the search for organizational leaders in the approval flow, and does not as a user data scope authorization.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="modal fade" id="orgEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mtt"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="orgEditFrame" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/jquery.ztree.all.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zorgList.js"></script>
+</body>
+</html>

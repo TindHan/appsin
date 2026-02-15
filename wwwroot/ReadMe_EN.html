@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="padding:25px">
+    <div id="top" class="h-25">&nbsp;</div>
+    <h3>Introduction to APPSIN Cross-Domain Heterogeneous Application Integrated System</h3>
+    <div style="border: 1px solid darkgrey; background-color: #F0F0F0;padding:15px">
+        This document is divided into three parts:：<br />
+        <a href="#c1">1.Basic introduction of the system</a><br />
+        <a href="#c2">2.Introduction to the Main functions of the system</a><br />
+        <a href="#c3">3.System technical documentation description</a><br />
+        Please click on the above three parts to jump to the corresponding content. <br />
+        I plan to release a new version before 30-06-2026. The whole system was designed and developed independently by myself, so there are many possible problems, if you have any advice or spot some bugs, welcome to contact me by email. <br />
+        My Email: apassenger@msn.com. By the way, I am currently looking for a job in Australia or New Zealand, if you know of any suitable opportunities and think I might be qualify for, please feel free to conntact me, I would be really grateful.
+    </div>
+    <div id="c1" class="mt-5">
+        <h4>1.Basic introduction of the system</h4>
+        <div style="padding-left:15px">
+            <p>
+                This system is targeted at department-level applications of enterprises with less than 1,000 users (or more). Its most distinctive feature is that customized applications of this system can be developed and deployed using any programming language, database, middleware, or server, and an integrated system usage experience can be obtained. This set of programs has already
+                The basic functions required for an enterprise information management system, such as organizational management, user management, permission management, log management, and login and logout, have been completed. The enterprise only needs to develop and deploy the actual business functions it requires using the familiar technology stack and register the application
+                In the main program of APPSIN, you can use your self-developed integrated applications within the APPSIN system.
+            </p>
+            <p>
+                The original design intention of this system is to address the issue of rapidly developing customized applications within the current framework of artificial intelligence capabilities to meet the informatization needs of enterprises. Although artificial intelligence currently has strong development capabilities, for demands with high business complexity such as enterprise information management systems,
+                At present, effective understanding and development are still impossible. This system has completed the complex and common parts of the underlying business logic. When enterprises use this system for customized development, they only need to focus on the development of the actual business part, which greatly simplifies the business complexity and fully utilizes the current artificial intelligence provided
+                Develop the ability to quickly build an information system that suits one's own needs
+            </p>
+            <p>This system contains two programs: the APPSIN main program and the integrated application demonstration program. This programs is the main program. Both programs are in English and currently do not support multiple languages.</p>
+            <p>The front end of the APPSIN main program is developed using bootstrap and jquery, and the back end is developed with NET10, Integrating the front-end and back-end into a single program，the database adopts MS SQL SERVER 2016, and the development tool is Visual Studio 2022.</p>
+            <p>The APPSIN integrated application demonstration program is developed using React and Antd, and the backend developed with NET10, the front-end and back-end are separate programs, the database uses My SQL 8.0.18, and the development tool is Visual studio 2022.</p>
+            <p>
+                The main program of APPSIN consists of two functional groups. One is the business function, which mainly includes desktop applications, organization management, user management, permission management, approval flow engine and logs, etc. Business functions can be logged in with the full-permission user tindhan, and the password is Tind123!@#; The other one is the integrated application management console, which mainly includes integrated application registration,
+                integrated application menu management, integrated application logs, integrated application usage statistics and other functions. The two have different login entries. There is a link to switch login pages at the bottom of the login page. The default number of users for the integrated application console is five, namely admin1 to admin5, and the default password is admin123!@#.
+                Business functions log page is IP:PORT/pages/users/ulogin.html; Integrated application management console login page is IP:PORT/pages/console/alogin.html
+            </p>
+            <p>
+                The integrated application demonstration program consists of two demonstration applications. One is event registration, which includes event management and event registration management. The other one is leave management, which includes leave application and leave approval query (the approval process is implemented by calling the approval flow driver engine of the main program)
+            </p>
+            <p>
+                The main program and the integrated application use the HTML iframe component to achieve page integration. In the main program, when the menu of the integrated application is clicked, the main program will open the iframe component and request the address on the pre-registered integrated application menu in this component.
+            </p>
+            <p>
+                The integration mechanism between the main program and the integrated application is as follows:
+            </p>
+            <p>
+                Integrated applications need to register in the APPSIN main program to obtain the application ID, application password, and application encryption key. Integrated applications can obtain the integrated API access authorization key (hereinafter referred to as the authorization key) by encrypting the application ID, application password, and timestamp. At the same time, register the third-party application menu in the "Integrated Application Menu" of the APPSIN main program. The third-party application menu will be displayed in the APPSIN main program.
+            </p>
+            <p>
+                2. When the user clicks on the integrated application menu of the APPSIN main program, the ifame component of the APPSIN main program will automatically load the web page of the integrated application based on the network address registered in the APPSIN main program earlier, and at the same time pass a key (hereinafter referred to as the handshake key) to the integrated application APIs via the get method.
+            </p>
+            <p>
+                When the API of the integrated application is accessed, the handshake key is obtained. Together with the authorization key, a request is made to the handshake API of the APPSIN main program to obtain the user's identity information.
+            </p>
+            <p>
+                4. After receiving a request, the handshake API of the APPSIN main program will verify the authorization key and the handshake key. If the verification is successful, it will return the user identity of the system to the integrated application. The integrated application can use this user identity to control business processes and permissions within the integrated application.
+            </p>
+            <p>
+                5. If the integrated application requires more user information and related user data, such as organizational structure, authorization information, etc., to ensure the operation of the integrated application, more data can be obtained by accessing the organizational structure information API and user data permission API of the APPSIN main program.
+            </p>
+            <p>
+                6. During the usage of the integrated application, the user's usage time is updated to the APPSIN main program API at regular intervals. The APPSIN main program will update the expiration time of the user's identity based on the user's usage time. If the integrated application has not been updated for a long time and the user has not operated the functions of the APPSIN main program for a long time (60 minutes), the user's identity will automatically expire You need to log in again to use it.
+            </p>
+            <p>
+                7. Integrated applications cannot perform page jumps on their own. Instead, they need to send a message containing the address of the jump page to the framework page of the integration platform through js code, and the integration platform will complete the jump. Integrated application redirection can only redirect to the pages of this application and cannot redirect to other cross-domain pages.
+            </p>
+            <p>
+                8. The APIs provided by the main program of APPSIN can be viewed in the Apis- Api list menu on the console page.
+            </p>
+            <p>
+                9. The database files are located in the "DB" folder within the program files. You can directly attach the database files to MS SQL SERVER, and then complete the connection between the program and the database by modifying the "connectString" database connection string in the "appsettings.json" file. 
+            </p>
+            <p>
+                10. In this program file, the database file contains demonstration data. If you wish to remove the demonstration data, please use the "initialize.sql" script in the "DB" folder to do so.
+            </p>
+        </div>
+
+        <a href="#top">TOP</a>
+    </div>
+
+    <div id="c2" class="mt-5">
+        <h4>2.Introduction to the Main functions of the system</h4>
+        <div style="padding-left:15px">
+            <p>
+                News Announcement: This function is an independent application of the APPSIN main system. It can issue news announcements to all users. It supports automatic display and hiding based on the effective time, payment for attachment download. News announcements can be published and managed in the Notice function of the Admin Center.
+            </p>
+            <p>
+                Notification message: This function consists of two parts. One part is the approval message notification of the approval flow driver engine of the APPSIN main program. The other part supports the integrated application to send notifications to specific users through the API, and also supports the jump url of the integrated application, that is, it is passed in when the API is called
+                The url of the integrated application enables users to click on the link to jump to the relevant detail page of the integrated application when viewing notification messages.
+            </p>
+            <p>
+                Task Management: This function is an independent application of the APPSIN main system, used by users to record and update their personal work task lists and work progress information, facilitating the management of their own work arrangements.
+            </p>
+            <p>
+                Organizational management: Organizational management encompasses the management of units, departments, and positions, as well as the corresponding basic information management. Units and departments support the setting of responsible persons or responsible positions, which are used for the approval flow driver engine to identify the corresponding responsible persons, but should not be applied to the identification of the data permission scope of relevant personnel.
+
+            </p>
+            <p>
+                Personnel management: Personal information management and change management of system users. It can flexibly set the user status to control user login, support regular user change business such as onboarding, transfer, and resignation, and achieve flexible management of user identity and permissions.
+            </p>
+            <p>
+                Menu role: One of the elements of user authorization, it is used for the management of functional menu permissions, including both the APPSIN main program menu and the menu of integrated applications. This function only manages permissions at the menu level and does not involve button permissions.
+            </p>
+            <p>
+                Data role: One of the elements of user authorization, it is used for the management of the organizational scope of user management. It supports two authorization methods: fixed data scope and dynamic data scope. The fixed data scope is to specify a fixed organizational structure scope, while the dynamic data scope is based on
+
+                The department and organization where the user is located determine which organization-wide data can be viewed and operated.
+            </p>
+            <p>
+                Role binding: Role binding supports binding based on four dimensions: personnel, position, department, and unit. It can bind both menu roles and data roles simultaneously. If a user binds multiple roles, or if a user has both user bindings and corresponding position, department, and unit bindings,
+                Then the user's permissions are a collection of multiple roles.
+            </p>
+            <p>
+                Role query: Query from the four dimensions of personnel, position, department, and unit which roles have been bound and the corresponding permissions.
+            </p>
+            <p>
+                Approval flow configuration: Configure the approval flow template. When users integrate applications for approval, they call the approval flow creation API to create an approval flow instance. This will copy the corresponding process from the approval flow template and automatically deprecate the approval process. Therefore, modifying the approval flow template after the approval flow instance is created will not change the already generated approval flow process.
+
+                Once there is a rejection operation in this approval process, the entire approval process ends and the rejection status is marked. The approval process supports conditional branching. Branch conditions are only valid when there are multiple branch processes. If an approval node has only one subsequent node, it will not take effect regardless of whether branch conditions are set or not.
+            </p>
+            <p>
+                Approval flow monitoring: View the historical approval processes of ongoing, rejected, abnormal, and completed approval flow instances.
+            </p>
+            <p>
+                Application data analysis: mainly includes three charts: Integrated application menu jump statistics; APPSIN main program API call statistics; The number of user logins is also known as the frequency statistics.
+            </p>
+            <p>
+                Application Management: Create and manage integrated applications, configure the protocol and domain name of integrated applications, and obtain information such as the Application SID, Application Secret, and Application pubKey of integrated applications.
+            </p>
+            <p>
+                Application Menu: Create and manage menus integrated into the APPSIN main program. After creation, users can be authorized in the permission management of the APPSIN main program.
+            </p>
+            <p>
+                Application log: Logs of users' usage of integrated applications, including information such as users, integrated applications, menu items, usage time, and whether the call was successful.
+            </p>
+            <p>
+                API list: The API information provided by the APPSIN main program externally, including the purpose of the API, the call address, the parameters required for the call, the format of the returned data, etc.
+            </p>
+            <p>
+                APIs authorization: Except for the handshake API, all other APIs must be authorized before they can be used by the integrated application. This function can maintain the permission of the integrated application to call the external APIs of the APPSIN main program.
+            </p>
+            <p>
+                APIs call log: Log query of different integrated applications calling the external APIs of the APPSIN main program.
+            </p>
+            <p>
+                Reference Management: Management of the reference item list, allowing for the addition or management of custom references and code items under references, supporting up to two levels of code.
+            </p>
+            <p>
+                User log: Log query for users logging in and out of the system.
+            </p>
+        </div>
+        <a href="#top">TOP</a>
+    </div>
+
+    <div id="c3" class="mt-5">
+        <h4>
+            3.System technical documentation description
+        </h4>
+        <div style="padding-left:15px">
+            <p>APPSINMain program API description：</p>
+            <table id="dt1" class="table table-bordered dt-responsive table-striped w-100">
+                <thead class="table-secondary table-header-fixed">
+                    <tr>
+                        <th>No.</th>
+                        <th>Api EN Name</th>
+                        <th>Api Description</th>
+                        <th>Api Address</th>
+                        <th>Api Code</th>
+                        <th>Api Argus</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hand Shake</td>
+                        <td>The app need to timed reset Token, to keep the system loged in.</td>
+                        <td>\api\Appserv\handShake</td>
+                        <td>10101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the key attached to url.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Reset Token</td>
+                        <td>The app need to timed reset Token, to keep the system loged in.</td>
+                        <td>\api\Appserv\resetToken</td>
+                        <td>10101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>One person Inforamtion</td>
+                        <td>To get one person basic information</td>
+                        <td>\api\Appserv\getPsnInfo</td>
+                        <td>11101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Person's full Infomation</td>
+                        <td>Get person's full Infomation, including contact information</td>
+                        <td>\api\Appserv\getPsnInfoFull</td>
+                        <td>11102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Search person</td>
+                        <td>Search someone's information by keyword/name/code</td>
+                        <td>\api\Appserv\getPsnSearch</td>
+                        <td>11103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the keyword/name/code.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>All Organiztion Information</td>
+                        <td>To get all organization data, including organazation additional information</td>
+                        <td>\api\Appserv\getAllOrgList</td>
+                        <td>12101</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be "";
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Organization Information</td>
+                        <td>To get basic organazation information</td>
+                        <td>\api\Appserv\getOrgInfo</td>
+                        <td>12102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique organization PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Person data authorization</td>
+                        <td>To get person authorization data, just part information, doesn't including contact information.</td>
+                        <td>\api\Appserv\getDataOsrz</td>
+                        <td>20102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique person PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Get all field set</td>
+                        <td>Get all field set, not including field items</td>
+                        <td>\api\Appserv\getFieldSet</td>
+                        <td>20103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be empty,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Get field items</td>
+                        <td>Get all field items, it is upper level is fieldset.</td>
+                        <td>\api\Appserv\getFieldItem</td>
+                        <td>20104</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique field set PK.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Add message</td>
+                        <td>Send users some work message, including a url for further task.</td>
+                        <td>\api\Appserv\addMsg</td>
+                        <td>20105</td>
+                        <td>
+                            { "aukey": "string", "args": "string", "msgData": [ { "objType": "string", "objID": 0, "msgType": "string", "msgTitle": "string", "msgContent": "string", "msgUrl": "string", "createTime": "dateTime", "expireTime": "dateTime", "msgDesc": "string" } ] }<br />
+                            aukey is a authorized token, args can be empty,  msgData is message content list,
+                            objType is the user types that your message want to send, include 4 options: psn, post, dept, unit, all. They represent person, position, department, organization, all users.
+                            objID is the associated ID of the objType. After you determine the objType of the message you want to send, it is the object ID to which the specific user receiving the message belongs.
+                            msgTitle is the message title that show in the message list, which must be less than 60 characters.
+                            msgContent is the message content that show in the message detail page, please do not include url.
+                            msgUrl is the link which show in the message detail page, click it will redirect your application page. but do not include domain, because appsin will add domain before your url automatically.
+                            expireTime is the time your message cann't be seen, after this time, the users won't see the message any more.
+                            msgDesc is the memo of the message which will not be shown to users, it can be empty.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Create Flow</td>
+                        <td>For create flow </td>
+                        <td>\api\AppServ\createFlow</td>
+                        <td>30101</td>
+                        <td>
+                            { "aukey": "string", "psnPK": "string", "createPsnPK": "string", "templatePK": "string", "flowName": "string", "flowDesc": "string", "contentUrl": "string", "int1Value": 0, "str1Value": "string", "date1Value": "dateTime" }<br />
+                            aukey is the authorized token,
+                            psnPK is the user unique ID that is applicant,
+                            createPsnPK is the user unique ID that create this flow, it is might different with psnPK,
+                            templatePK is the flow template unique ID,
+                            flowName is the flow name which must be less than 80 characters.
+                            flowDesc is the flow description which must be less than 150 characters.
+                            contentUrl is the specific approval content page that can be viewed on the approval page, but do not include domain, because appsin will add domain before your url automatically.
+                            int1Value is the integer condition value which used to determine which flow branch should to follow.
+                            str1Value is the string condition value which used to determine which flow branch should to follow.
+                            date1Value is the datetime condition value which used to determine which flow branch should to follow.
+                            Generally, int1Value, str1Value, date1Value, you just need to select one to send value, and the others can be empty, because only one can be chosen to set the approval flow condition.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Get flow template list</td>
+                        <td>For geting flow list</td>
+                        <td>\api\AppServ\getFlowTemplateList</td>
+                        <td>30102</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args can be empty,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Get flow template nodes</td>
+                        <td>For geting flow nodes</td>
+                        <td>\api\AppServ\getFlowTemplateNodes</td>
+                        <td>30103</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique flow template PK
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Get flow instance</td>
+                        <td>For geting flow instance detail</td>
+                        <td>\api\AppServ\getFlowInstance</td>
+                        <td>30104</td>
+                        <td>
+                            {aukey:"",args:""}<br />
+                            aukey is a authorized token，args is the unique flow instance PK.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+
+                The way to obtain the authorization key
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                The authorization key is an essential field for an integrated application to request the APPSIN main program APIs service, used to verify the legitimate identity of the integrated application and the permission to invoke the APIs.
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                When registering an integrated Application in the APPSIN main program, you can obtain the Application SID, Application Secret, and Application PubKey of the integrated application, among which the Application pubKey is the public key for key encryption.
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                b. When creating the authorization key, first generate a second-level timestamp, and then follow the Application SID + '; '+ Application Secret + '; String concatenation in the format of '+ timestamp, note that the semicolon must be half-width.
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                c. Use the obtained Application pubKey to perform RSA encryption on the concatenated string to obtain the encrypted key.
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                d. Attach the Application SID to the front of the encrypted key to form the final authorization key, which is the aukey required by the API.
+
+            </p>
+
+            <p style="text-indent:2em">
+
+                The code example of C# is as follows:
+
+            </p>
+            <pre>
+                <code>
+                    //The function of get authorization key
+                    public static string genAukey()
+                    {
+                        string appSID = "52021156";
+                        string appSecret = "wGmt9o5ucmzLpszm";
+                        long timestamp = GetCurrentTimestampSeconds();
+                        string pubkey = "MEgCQQDOGE80bY9nK8Akxw+CXmsHqF7y/kPMbAim/M9hm3w0TN/h1cFONdo7OaWF3hBRAaTYwbdTTiTQjvgi7j31ExbdAgMBAAE=";
+                        string aukey = appSID + Encrypt(pubkey, appSID + ";" + appSecret + ";" + timestamp);
+                        return aukey;
+                    }
+
+                    //The function of get the timestamp
+                    public static long GetCurrentTimestampSeconds()
+                    {
+                        DateTime startTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                        DateTime currentTime = DateTime.UtcNow;
+                        TimeSpan timeSpan = currentTime - startTime;
+                        return (long)timeSpan.TotalSeconds;
+                    }
+
+                    //RSA encryption function
+                    public static string Encrypt(string publicKey, string data)
+                    {
+                        using (var rsa = new RSACryptoServiceProvider())
+                        {
+                            rsa.ImportRSAPublicKey(Convert.FromBase64String(publicKey), out _);
+                            var bytes = Encoding.UTF8.GetBytes(data);
+                            var encryptedBytes = rsa.Encrypt(bytes, RSAEncryptionPadding.Pkcs1);
+                            return Convert.ToBase64String(encryptedBytes);
+                        }
+                    }
+                </code>
+             </pre>
+        </div>
+        <a href="#top">TOP</a>
+    </div>
+
+</body>
+</html>

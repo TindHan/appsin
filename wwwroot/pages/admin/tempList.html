@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Flow Templates</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="#">Admin Center</a></li>
+                                <li class="breadcrumb-item active">Flow Templates</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="flex-row-between">
+                            <div style="display:flex;justify-content:flex-start;margin-bottom:10px">
+                                <label for="horizontal-firstname-input" class="col-form-label">Key Word</label>
+                                <input class="form-control width-200" type="text" id="kw">
+                                <label for="horizontal-firstname-input" class="col-form-label ml-20">Status</label>
+                                <select class="form-select width-120" id="status">
+                                    <option value="1">Enabled</option>
+                                    <option value="0">Disabled</option>
+                                </select>
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm" id="btnSearch">
+                                    <i class="fas fa-search"></i> SEARCH
+                                </button>
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm ml-20" id="btnNew">
+                                    <i class="fas fa-plus"></i> New
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex-col-between">
+                            <div id="tblArea" style="height:calc(100vh - 125px);overflow-y:auto">
+
+                            </div>
+                            <div id="paginationArea">
+
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+
+            <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="tempInfo">
+                                <div class="row">
+                                    <div class="mb-9 col-9">
+                                        <label for="example-text-input" class="form-label">Template Name</label>
+                                        <input class="form-control" type="text" value="" id="templateName" name="templateName">
+                                    </div>
+                                    <div class="mb-3 col-3">
+                                        <label for="example-text-input" class="form-label">Display Order</label>
+                                        <input class="form-control" type="number" value="0" id="displayOrder" name="displayOrder">
+                                    </div>
+                                    <div class="mb-3 col-12">
+                                        <label for="example-text-input" class="form-label">template Description</label>
+                                        <input class="form-control" type="text" value="" id="templateDesc" name="templateDesc">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="example-text-input" class="form-label">
+                                            The arguments of Node Conditions
+                                        </label>
+                                        <i class="fas fa-question-circle" title="The system presets a integer parameter, a date parameter and a character parameter, which are used when setting nodes. When a node has more than one followed node, the specific node is executed according to the parameters and conditions configured by the followed node. The use of these parameters is not mandatory, and you can choose to use them based on your business requirement. But please note, if a node only has one following node, this configration is not working!"></i>
+                                    </div>
+                                    <div class="mb-3  col-md-4">
+                                        <label for="example-text-input" class="form-label">String Argument Title</label>
+                                        <input class="form-control" type="text" value="" id="str1Title" name="str1Title">
+                                    </div>
+                                    <div class="mb-3  col-md-4">
+                                        <label for="example-text-input" class="form-label">Integer Argument Title</label>
+                                        <input class="form-control" type="text" value="" id="int1Title" name="int1Title">
+                                    </div>
+                                    <div class="mb-3  col-md-4">
+                                        <label for="example-text-input" class="form-label">Datetime Argument Title</label>
+                                        <input class="form-control" type="text" value="" id="date1Title" name="date1Title">
+                                    </div>
+                                    <div class="mb-3  col-md-12">
+                                        <div class="form-check form-switch pt-2" dir="ltr">
+                                            <input type="checkbox" class="form-check-input" id="templateStatus" name="templateStatus">
+                                            <label class="form-check-label" for="templateStatus">Enable</label>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="templateID" name="templateID" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" id="toClose">Close</button>
+                            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/tempList.js"></script>
+</body>
+</html>

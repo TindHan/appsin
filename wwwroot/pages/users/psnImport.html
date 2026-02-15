@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body mb-2">
+                        <div style="overflow-y:auto;overflow-x:hidden;height:calc(100vh - 45px)">
+                            <form id="psnInfo">
+                                <div class="mt-2">
+                                    <label for="example-text-input" class="form-label">Please Choose xlsx File</label>
+                                    <input class="form-control" type="file" accept=".xls,.xlsx" id="xlsxFile" name="xlsxFile">
+                                </div>
+                                <div id="msg" class="text-info flex-col-center justify-content-center">
+
+                                </div>
+                                <div class="flex-row-center">
+                                    <button type="button" class="btn btn-primary width-150 mt-4" id="toImport">Import</button>
+                                </div>
+                                <div class="flex-row-center">
+                                    <a href="#" id="toDownload"  class="mt-4">Click here to download excel template</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="/js/zpsnImport.js"></script>
+</body>
+</html>

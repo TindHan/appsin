@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+                <form id="psnPwd">
+                    <div class="mb-3 col-md-12">
+                        <label for="example-text-input" class="form-label">Now Password</label>
+                        <input class="form-control" type="password" value="" id="userPwd0" name="userPwd0">
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="example-text-input" class="form-label">New Password</label>
+                        <input class="form-control" type="password" value="" id="userPwd1" name="userPwd1">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Repeat New Password</label>
+                        <input class="form-control" type="password" value="" id="userPwd2" name="userPwd2">
+                    </div>
+                    <p>Prompt:the password must contain uppercase and lowercase letters, numbers, and special symbols</p>
+                    <div><input type="hidden" id="psnID" name="psnID" /></div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/jsencrypt.min.js"></script>
+    <script src="../../js/zmyPwd.js"></script>
+
+</body>
+</html>

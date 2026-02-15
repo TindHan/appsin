@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Flow Config</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/jsplumbtoolkit.css" rel="stylesheet">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/flowConfig.css" rel="stylesheet" />
+    <link href="../../css/app.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="d-flex" style="height: calc(95vh);">
+        <div id="canvas" class="flex-fill ml-20 mr-20 h-100"></div>
+    </div>
+    <div id="nodeContent" style="height: calc(5vh);text-align:center"></div>
+    <div class="modal fade" id="nodeModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/jsplumb.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/flowView.js"></script>
+</body>
+</html>

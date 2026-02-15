@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" rel="stylesheet" />
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form id="unitInfo">
+                            <div class="row">
+                                <div class="mb-3  col-md-6">
+                                    <label for="example-text-input" class="form-label">Name</label>
+                                    <input class="form-control" type="text" value="" id="uName" name="uName">
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="example-text-input" class="form-label">Code</label>
+                                    <input class="form-control" type="text" value="" id="uCode" name="uCode">
+                                </div>
+                                <div class="mb-3  col-md-6" id="parentList">
+                                    <label id="poid-label" for="example-text-input" class="form-label">Parent</label><br />
+                                    <select id="puID" name="puID">
+                                        <option value="0">---Please Choose---</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3  col-md-6" id="typeList">
+                                    <label id="poid-label" for="example-text-input" class="form-label">Type</label>
+                                    <select class="form-select" id="uType" name="uType">
+                                        <option value="0">---Please Choose---</option>
+                                        <option value="unit">organization</option>
+                                        <option value="dept">department</option>
+                                        <option value="post">position</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3  col-md-6">
+                                    <label for="example-text-input" class="form-label">Start</label>
+                                    <input class="form-control" type="date" value="" id="startDate" name="startDate">
+                                </div>
+                                <div class="mb-3  col-md-6">
+                                    <label for="example-text-input" class="form-label">End</label>
+                                    <input class="form-control" type="date" value="" id="endDate" name="endDate">
+                                </div>
+                                <div class="mb-3  col-md-6" id="chargePst">
+                                    <label for="example-text-input" class="form-label">Position In Charge</label>
+                                    <select class="form-control" name="adminPost" id="adminPost">
+                                        <option value="0">---Please Choose---</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3  col-md-6" id="chargePsn">
+                                    <label for="example-text-input" class="form-label">Supervisor</label>
+                                    <select class="form-select" id="adminPsn" name="adminPsn">
+                                        <option value="0">---Please Choose---</option>
+                                    </select>
+                                </div>
+                                <p class="mb-3">Prompt1：There is no head position or head person for position<br/>Prompt2：The parent and type of root organization cannot be modified.</p>
+                                <div><input type="hidden" id="uID" name="uID" value="" /></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                        <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="/js/zorgEdit.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+</body>
+</html>

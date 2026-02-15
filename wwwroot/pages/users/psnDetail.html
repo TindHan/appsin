@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="divInfo" style="overflow-y:auto;height:450px;margin-bottom:10px">
+
+                            <table class="w-100">
+                                <tr>
+                                    <td class="p-3 w-15 text-right text-table-title">Name</td>
+                                    <td class="p-3 w-18" id="uName"></td>
+                                    <td class="p-3 w-15 text-right text-table-title">Nickname</td>
+                                    <td class="p-3 w-18" id="uAlian"></td>
+                                    <td class="p-3 text-center" rowspan="3" colspan="2"><img id="imgAvatar" height="120" src="../../img/noavatar.png" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Organazation</td>
+                                    <td class="p-3 " id="uUnit"></td>
+                                    <td class="p-3 text-right text-table-title">Code</td>
+                                    <td class="p-3 " id="uCode"></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Department</td>
+                                    <td class="p-3 " id="uDept"></td>
+                                    <td class="p-3 text-right text-table-title">Postion</td>
+                                    <td class="p-3 " id="uPost"></td>
+                                </tr>
+                                <tr style="border-top:1px solid lightgrey">
+                                    <td class="p-3 text-right text-table-title">ID Type</td>
+                                    <td class="p-3" id="uCert"></td>
+                                    <td class="p-3 text-right text-table-title">ID No.</td>
+                                    <td class="p-3 " id="uID"></td>
+                                    <td class="p-3 text-right text-table-title">Sex</td>
+                                    <td class="p-3 " id="uSex"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Nationality</td>
+                                    <td class="p-3 " id="uNation"></td>
+                                    <td class="p-3 text-right text-table-title">Type</td>
+                                    <td class="p-3 " id="uType"></td>
+                                    <td class="p-3 text-right text-table-title">Username</td>
+                                    <td class="p-3 " id="uLogin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Cellphone</td>
+                                    <td class="p-3 " id="uPhone"></td>
+                                    <td class="p-3 text-right text-table-title">Email</td>
+                                    <td class="p-3 " id="uMail"></td>
+                                    <td class="p-3 text-right text-table-title">IM</td>
+                                    <td class="p-3 " id="uIM"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Birthday</td>
+                                    <td class="p-3 " id="uBirthday"></td>
+                                    <td class="p-3 text-right text-table-title">Join Date</td>
+                                    <td class="p-3 " id="uJoinday"></td>
+                                    <td class="p-3 text-right text-table-title">Start Work Date</td>
+                                    <td class="p-3 " id="uJobday"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Memo1</td>
+                                    <td class="p-3 " id="uM1"></td>
+                                    <td class="p-3 text-right text-table-title">Memo2</td>
+                                    <td class="p-3 " id="uM2"></td>
+                                    <td class="p-3 text-right text-table-title">Memo3</td>
+                                    <td class="p-3 " id="uM3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-right text-table-title">Memo4</td>
+                                    <td class="p-3 " id="uM4"></td>
+                                    <td class="p-3 text-right text-table-title">Memo5</td>
+                                    <td class="p-3 " id="uM5"></td>
+                                    <td class="p-3 text-right text-table-title">Create Date</td>
+                                    <td class="p-3 " id="uTime"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zpsnDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="divInfo" style="overflow-y:auto;height:450px;margin-bottom:10px">
+                            <form id="transferForm">
+                                <table class="w-100">
+                                    <tr>
+                                        <td colspan="4" class="text-center">
+                                            <img id="imgAvatar" height="120" src="../../img/noavatar.png" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-center p-3">
+                                            <h4 id="uName"></h4>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-top:1px solid lightgrey">
+                                        <td class="p-3 w-15 text-right text-table-title">CERT TYPE</td>
+                                        <td class="p-3 w-35" id="uCert"></td>
+                                        <td class="p-3 w-15 text-right text-table-title">CERT No.</td>
+                                        <td class="p-3 w-35" id="uID"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 text-right text-table-title">SEX</td>
+                                        <td class="p-3" id="uSex"></td>
+                                        <td class="p-3 text-right text-table-title">CODE</td>
+                                        <td class="p-3" id="uCode"></td>
+                                    </tr>
+
+                                    <tr style="border-top:1px solid lightgrey">
+                                        <td class="p-3 w-15 text-right text-table-title">TRANSFER TYPE</td>
+                                        <td class="p-3 w-35">
+                                            <select class="form-select" id="transType" name="transType">
+                                                <option value="0">---Please choose---</option>
+                                                <option value="1">Organization Transfer</option>
+                                                <option value="2">Staff type Transfer</option>
+                                                <option value="3">Dimission Or Retire</option>
+                                            </select>
+                                        </td>
+                                        <td class="p-3 w-15 text-right text-table-title">TRANSFER DATE</td>
+                                        <td class="p-3 w-35">
+                                            <input class="form-control" type="date" value="" id="transDate" name="transDate">
+                                        </td>
+                                    </tr>
+                                    <tr name="orgArea" class="element-hide">
+                                        <td class="p-3 text-right text-table-title">PRE ORGANIZATION</td>
+                                        <td class="p-3 " id="uUnit"></td>
+                                        <td class="p-3 text-right text-table-title">NEXT ORGANIZATION</td>
+                                        <td class="p-3 " id="">
+                                            <select class="form-select" id="unitID" name="unitID">
+                                                <option value="0">---Please choose---</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr name="orgArea" class="element-hide">
+                                        <td class="p-3 text-right text-table-title">PRE DEPARTMENT</td>
+                                        <td class="p-3 " id="uDept"></td>
+                                        <td class="p-3 text-right text-table-title">NEXT DEPARTMENT</td>
+                                        <td class="p-3 " id="">
+                                            <select class="form-select" id="deptID" name="deptID">
+                                                <option value="0">---Please choose organization first---</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr name="orgArea" class="element-hide">
+                                        <td class="p-3 text-right text-table-title">PRE POSTION</td>
+                                        <td class="p-3 " id="uPost"></td>
+                                        <td class="p-3 text-right text-table-title">NEXT POSTION</td>
+                                        <td class="p-3 " id="">
+                                            <select class="form-select" id="postID" name="postID">
+                                                <option value="0">---Please choose deptment first---</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr name="staffArea" class="element-hide">
+                                        <td class="p-3 text-right text-table-title">PRE STAFF TYPE</td>
+                                        <td class="p-3 " id="uOnType"></td>
+                                        <td class="p-3 text-right text-table-title">NEXT STAFF TYPE</td>
+                                        <td class="p-3 " id="">
+                                            <select class="form-select" id="onType" name="onType">
+                                                <option value="0">---Please choose---</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr name="onjobArea" class="element-hide">
+                                        <td class="p-3 text-right text-table-title">PRE ONJOB TYPE</td>
+                                        <td class="p-3 " id="uOnStatus"></td>
+                                        <td class="p-3 text-right text-table-title">NEXT ONJOB TYPE</td>
+                                        <td class="p-3 " id="">
+                                            <select class="form-select" id="onStatus" name="onStatus">
+                                                <option value="0">---Please choose---</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input type="hidden" id="psnID" name="psnID" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                        <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zpsnTransfer.js"></script>
+</body>
+</html>

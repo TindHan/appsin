@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Function Search</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Frame</a></li>
+                                <li class="breadcrumb-item active">Function Search</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <div class="flex-row-between">
+                            <div style="display:flex;justify-content:flex-start;margin-bottom:10px">
+                                <label for="horizontal-firstname-input" class="col-form-label"><b>Key word:</b></label>
+                                <input class="form-control width-300 input-underline" type="text" disabled id="kwshow">
+                            </div>
+                            <div>
+                                <nav aria-label="Page navigation example" id="paginationArea">
+
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="flex-col-between  border-all-lightgrey" style="height:calc(100vh - 120px);">
+                            <ul id="funcList">
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/zsearchMenu.js"></script>
+</body>
+</html>

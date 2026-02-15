@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row"  style="overflow-y:auto;overflow-x:hidden;height:calc(100vh - 40px)">
+                <form id="menuInfo">
+                    <div class="mb-3 col-md-12" style="display:none">
+                        <label for="example-text-input" class="form-label">Application Name</label>
+                        <input class="form-control" type="text" value="" readonly id="appName" name="appName">
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="example-text-input" class="form-label">Module Name</label>
+                        <input class="form-control" type="text" value="" disabled id="moduleName" name="moduleName">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Menu Name</label>
+                        <input class="form-control" type="text" value="" id="menuName" name="menuName">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Menu Type</label>
+                        <select class="form-select" id="menuType" name="menuType">
+                            <option value="">---Please Choose---</option>
+                            <option value="pclink">For PC Browser</option>
+                            <option value="moblink">For Cellphone</option>
+                        </select>
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Menu Description</label>
+                        <input class="form-control" type="text" value="" id="menuDesc" name="menuDesc">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Menu Icon</label>
+                        <input class="form-control" type="text" value="" id="menuIcon" name="menuIcon">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Menu Link</label><span id="lblLink"></span>
+                        <input class="form-control" type="text" value="" id="menuLink" name="menuLink">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Display Order</label>
+                        <input class="form-control" type="number" value="" id="displayOrder" name="displayOrder">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <div class="form-check form-switch pt-2" dir="ltr">
+                            <input type="checkbox" class="form-check-input" checked id="menuStatus" name="menuStatus">
+                            <label class="form-check-label" for="menuStatus">Enable</label>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="hidden" id="parentID" name="parentID" />
+                        <input type="hidden" id="menuID" name="menuID" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zappMenuLink.js"></script>
+</body>
+</html>

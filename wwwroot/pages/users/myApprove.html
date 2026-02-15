@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Approve</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Approve</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-10">
+                        <div id="approveOp" style="display:none" class="flex-row-between">
+                            <div style="display:flex;justify-content:flex-start;margin-bottom:10px;">
+                                <label for="horizontal-firstname-input" class="col-form-label text-black">Your opinon:</label>
+                                <div class="form-check pt-2 ml-15">
+                                    <input class="form-check-input" type="radio" name="radioApprove" id="radioYes">
+                                    <label class="form-check-label" for="radioYes">
+                                        Agree
+                                    </label>
+                                </div>
+                                <div class="form-check pt-2 ml-10">
+                                    <input class="form-check-input" type="radio" name="radioApprove" id="radioNo">
+                                    <label class="form-check-label" for="radioNo">
+                                        Disagree
+                                    </label>
+                                </div>
+                                <label for="horizontal-firstname-input" class="col-form-label ml-20">Reason:</label>
+                                <input class="form-control width-400 input-underline" type="text" placeholder="" id="isNote">
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm" id="btnSubmit">
+                                    <i class="fas fa-save"></i> SUBMIT
+                                </button>
+
+                            </div>
+                        </div>
+                        <div id="approveAlert" class="pt-2 pb-2" style="display:none">
+                            <b id="isEndAlert" class="font-size-16"></b>
+                            <b id="isApprAlert" class="font-size-16"></b>
+                        </div>
+                    </div>
+                    <div class="col-2" style="display:flex;justify-content:flex-end;margin-bottom:10px;padding-right:30px">
+                        <button type="button" class="btn btn-soft-success waves-effect waves-light btn-sm ml-20" id="btnView">
+                            <i class="fas fa-random"></i> Flow Nodes
+                        </button>
+                    </div>
+                    <div class="row" style="height:calc(86vh);">
+                        <div class="col-8 h-100">
+                            <div class="border h-100 p-3">
+                                <div>
+                                    <b id="instanceTitle"></b>
+                                </div>
+                                <iframe id="contentUrl" class="w-100" style="height: calc(100vh - 170px);"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-4 h-100">
+                            <div class="border p-3  h-100">
+                                <b>Approve History:</b>
+                                <div class="mt-3">
+                                    <ul>
+                                        <li id="flowStart"></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul id="approveLog">
+                                    </ul>
+                                </div>
+
+                                <div></div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+            <div class="modal fade" id="viewModel" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Detail</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="fview" class="h-500 w-100"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+    <script src="../../js/myApprove.js"></script>
+</body>
+</html>

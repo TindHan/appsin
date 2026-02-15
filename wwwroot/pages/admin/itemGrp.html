@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row" style="overflow-y:auto;overflow-x:hidden;height:calc(100vh - 40px)">
+                <form id="objInfo">
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Field Item Name</label>
+                        <input class="form-control" type="text" value="" id="itemName" name="itemName">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Field Item Description</label>
+                        <input class="form-control" type="text" value="" id="itemDesc" name="itemDesc">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <label for="example-text-input" class="form-label">Display Order</label>
+                        <input class="form-control" type="number" value="" id="displayOrder" name="displayOrder">
+                    </div>
+                    <div class="mb-3  col-md-12">
+                        <div class="form-check form-switch pt-2" dir="ltr">
+                            <input type="checkbox" class="form-check-input" checked id="itemStatus" name="itemStatus">
+                            <label class="form-check-label" for="itemStatus">Enable</label>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="hidden" id="parentID" name="parentID" />
+                        <input type="hidden" id="itemID" name="itemID" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="/js/metisMenu.min.js"></script>
+    <script src="/js/simplebar.min.js"></script>
+    <script src="/js/waves.min.js"></script>
+    <script src="/js/feather.min.js"></script>
+    <script src="/js/responsive.bootstrap4.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zitemGrp.js"></script>
+</body>
+</html>

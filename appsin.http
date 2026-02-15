@@ -1,0 +1,6 @@
+@TindCore_HostAddress = http://localhost:5171
+
+GET {{TindCore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

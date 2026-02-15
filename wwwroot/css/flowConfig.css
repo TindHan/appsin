@@ -1,0 +1,54 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    width: 200px;
+    background: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    user-select: none;
+}
+
+#canvas {
+    position: relative;
+    height: calc(100vh - 125px);
+    overflow: auto;
+    background: #fff;
+}
+
+.node {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    background: #fff;
+    cursor: move;
+    z-index: 10;
+}
+
+    .node.start {
+        border-color: #28a745;
+    }
+
+    .node.end {
+        border-color: #dc3545;
+    }
+
+    .node.selected {
+        border-color: #ff0;
+        box-shadow: 0 0 8px #ff0;
+    }
+
+.jtk-connector {
+    z-index: 5;
+}
+
+.toolbar button {
+    width: 100%;
+    margin-bottom: 6px;
+}

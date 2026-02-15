@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" style="overflow-y:auto;overflow-x:hidden;height:calc(100vh - 45px)">
+                        <form id="objInfo">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="example-text-input" class="form-label">Name</label>
+                                    <input class="form-control" type="text" value="" id="setName" name="setName">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label id="poid-label" for="example-text-input" class="form-label">Type</label>
+                                    <select class="form-select" id="setType" name="setType">
+                                        <option value="0">---Please Choose---</option>
+                                        <option value="type1">type1</option>
+                                        <option value="type2">type2</option>
+                                        <option value="type3">type3</option>
+                                        <option value="Type4">Type4</option>
+                                        <option value="Type5">Type5</option>
+                                        <option value="system">system</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label id="poid-label" for="example-text-input" class="form-label">Description</label><br />
+                                    <textarea rows="3" class="form-control" id="setDesc" name="setDesc"></textarea>
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label id="poid-label" for="example-text-input" class="form-label">Code</label><br />
+                                    <input class="form-control" type="text" value="" id="setCode" name="setCode">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label for="example-text-input" class="form-label">Level</label>
+                                    <input class="form-control" type="text" value="" id="setLevel" name="setLevel">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label for="example-text-input" class="form-label">Display Order</label>
+                                    <input class="form-control" type="text" value="" id="displayOrder" name="displayOrder">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <div class="form-check form-switch pt-2" dir="ltr">
+                                        <input type="checkbox" class="form-check-input" checked id="setStatus" name="setStatus">
+                                        <label class="form-check-label" for="setStatus">Enable</label>
+                                    </div>
+                                </div>
+                                <div><input type="hidden" id="setID" name="setID" value="" /></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                        <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zsetEdit.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+</body>
+</html>

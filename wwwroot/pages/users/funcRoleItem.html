@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+
+                <div class="mb-3 col-6">
+                    <label for="example-text-input" class="form-label">Choose App</label>
+                    <select class="form-select" id="appID" name="appID">
+                        <option value="0">---Please Choose---</option>
+                    </select>
+                </div>
+                <div class="mb-3  col-6">
+                    <label for="example-text-input" class="form-label">Choose Module</label>
+                    <select class="form-select" id="moduleID" name="moduleID">
+                        <option value="0">---Please Choose App First---</option>
+
+                    </select>
+                </div>
+                <div class="mb-3  col-12">
+                    <label for="example-text-input" class="form-label">Choose Menu</label>
+                    <select class="form-select" id="menuID" name="menuID" multiple="multiple" size="1">
+                        <option value="0">---Please Choose Module First---</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div style="height:210px"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" id="toClose">Close</button>
+            <button type="button" class="btn btn-primary ml-15 width-60" id="toSave">save</button>
+        </div>
+
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/common/select2.min.js"></script>
+    <script src="../../js/zfuncRoleItem.js"></script>
+</body>
+</html>

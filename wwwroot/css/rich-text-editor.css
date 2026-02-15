@@ -1,0 +1,226 @@
+/* 富文本编辑器样式 */
+.appsin-rich-text-editor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow: hidden; /* 确保内部元素不会超出边框 */
+}
+
+.appsin-editor-toolbar {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 10px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    white-space: nowrap; /* 防止工具栏内容换行导致高度增加 */
+}
+
+.appsin-toolbar-btn {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+    color: #666;
+    position: relative;
+    z-index: 2;
+}
+
+    .appsin-toolbar-btn:hover {
+        background-color: #e9ecef;
+        color: #333;
+    }
+
+.appsin-upload-container {
+    position: relative;
+    display: inline-block;
+}
+
+.appsin-image-upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.appsin-editor-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* 解决flex容器中子元素高度计算问题 */
+}
+
+.appsin-editor-content {
+    flex: 1;
+    padding: 15px;
+    outline: none;
+    overflow: auto;
+    min-height: 100px;
+    background-color: white;
+    /* 移除内容区自身的边框，避免与外边框重叠 */
+    border: none;
+    /* 解决内容区滚动条导致的边框遮挡问题 */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+    /* 当编辑区获得焦点时显示内发光效果，增强当前编辑状态的视觉提示 */
+    .appsin-editor-content:focus {
+        box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.2);
+    }
+
+.appsin-separator {
+    width: 1px;
+    background-color: #ddd;
+    margin: 0 8px;
+    align-self: stretch;
+}
+
+.appsin-font-size-select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: white;
+    color: #666;
+}
+
+.appsin-editor-content img.appsin-selected {
+    outline: 2px solid #666;
+    box-shadow: 0 0 0 3px rgba(102, 102, 102, 0.15);
+}
+
+/* 图片大小调整弹窗样式 */
+.appsin-rte-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.appsin-rte-modal {
+    background-color: white;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.appsin-rte-modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appsin-rte-modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.appsin-rte-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.appsin-rte-modal-body {
+    padding: 15px;
+}
+
+.appsin-rte-form-group {
+    margin-bottom: 15px;
+}
+
+.appsin-rte-form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.appsin-rte-form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.appsin-aspect-ratio-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+    .appsin-aspect-ratio-container .appsin-form-check-input {
+        margin-top: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 3px;
+        border: 1px solid #666;
+    }
+
+    .appsin-aspect-ratio-container .appsin-form-check-label {
+        color: #666;
+    }
+
+.appsin-rte-modal-footer {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.appsin-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.appsin-btn-secondary {
+    background-color: #f0f0f0;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+    .appsin-btn-secondary:hover {
+        background-color: #e0e0e0;
+    }
+
+.appsin-btn-primary {
+    background-color: #666;
+    color: white;
+    border: 1px solid #555;
+}
+
+    .appsin-btn-primary:hover {
+        background-color: #555;
+    }
+
+/* 确保所有元素都使用border-box盒模型，避免宽度计算问题 */
+* {
+    box-sizing: border-box;
+}

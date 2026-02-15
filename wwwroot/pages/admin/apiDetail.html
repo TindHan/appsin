@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="unitEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="divInfo" style="overflow-y: auto; height: calc(100vh - 45px); margin-bottom: 10px">
+                            <ul class="list-group">
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Name<span id="apiName" class="float-end font-size-14"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Type <span id="apiType" class="float-end font-size-14"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Description<span id="apiDesc" class="float-end font-size-14"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Code<span id="apiCode" class="float-end font-size-14"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Address<span id="apiAddress" class="float-end font-size-14"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Request Para<span id="apiReqPara" class="float-end font-size-14 width-500 text-wrap text-right"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Response Para<span id="apiResPara" class="float-end font-size-14 width-500 text-wrap text-right"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Key Note<span id="apiKeyNote" class="float-end font-size-14 width-500 text-wrap text-right"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Example<span id="apiExample" class="float-end font-size-14 width-500 text-wrap text-right"></span></li>
+                                <li class="pt-3 pb-3 boder-bottom-lightgrey">Api Status<span id="apiStatus" class="float-end font-size-14"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" id="toClose">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/bootstrap.bundle.min.js"></script>
+    <script src="../../js/common/common_method.js"></script>
+    <script src="../../js/common/sweetalert2.min.js"></script>
+    <script src="../../js/zapiDetail.js"></script>
+</body>
+</html>
