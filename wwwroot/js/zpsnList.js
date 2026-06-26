@@ -2,6 +2,7 @@
 
 jQuery(function ($) {
     bindOrg();
+    I18n.init();
 });
 
 function bindOrg() {
@@ -219,7 +220,7 @@ function bindEvent() {
 
     $('button[name="toEdit"]').on('click', function (e) {
         var pid = $(this).attr("data-id");
-        $("#showModalFrame").attr("src", "psnEdit.html?t=e&i=" + pid).attr("width", "950px").attr("height", "410px");
+        $("#showModalFrame").attr("src", "psnEdit.html?t=e&i=" + pid).attr("width", "950px").attr("height", "500px");
         $("#mtt").html("Edit Person");
         $("#showModal").modal("show");
     });

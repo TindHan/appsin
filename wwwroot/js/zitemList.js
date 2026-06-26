@@ -2,6 +2,7 @@
     bindNull();
     getSet();
     bindEvent();
+    I18n.init();
 })
 
 function getSet() {

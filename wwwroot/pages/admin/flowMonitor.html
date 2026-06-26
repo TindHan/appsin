@@ -8,6 +8,18 @@
     <link href="../../css/icons.min.css" rel="stylesheet" type="text/css">
     <link href="../../css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
     <link href="../../css/sweetalert2.min.css" rel="stylesheet" />
+    <style>
+        /* Ensure editApproverModal stacks above the existing modal and its backdrop */
+        .modal-backdrop.add-approver-backdrop { z-index: 1060 !important; }
+        /* modal element should be above its backdrop */
+        #editApproverModal.add-approver-stack.modal { z-index: 1065 !important; }
+        /* ensure pointer events reach the modal content */
+        #editApproverModal.add-approver-stack.modal .modal-dialog { pointer-events: auto; }
+
+        /* Make SweetAlert appear above our custom modal stack */
+        .swal2-container { z-index: 9999 !important; }
+        .swal2-popup { z-index: 10000 !important; }
+    </style>
 </head>
 
 <body>
@@ -68,8 +80,12 @@
                         </div>
                         <div class="modal-body">
                             <div id="divInfo" style="overflow-y: auto; height:500px; margin-bottom: 10px;">
-                                <div class="pt-3 pb-3 boder-bottom-lightgrey">
-                                    Current Approver:
+                                <div class="pt-2 pb-2 boder-bottom-lightgrey">
+                                    <div class="flex-row-between">
+                                        <span>Current Approver:</span>
+                                       
+                                    </div>
+                                    
                                     <ul id="nextApprover" class="mt-2"></ul>
                                 </div>
                                 <div class="pt-3 pb-3 boder-bottom-lightgrey">
@@ -99,7 +115,58 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light" id="toClose">Close</button>
+                            <button type="button" class="btn btn-light" id="toClose"  data-I18n="all.Close" >Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Approver Modal (static UI only) -->
+            <div class="modal fade" id="editApproverModal" tabindex="-1" aria-labelledby="addApproverLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addApproverLabel">Select Approver</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label">Search</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="approverSearchInput" placeholder="Name or Employee Code">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-primary w-100" id="approverSearchBtn">Search</button>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <small class="text-muted">Search results</small>
+                                <div class="table-responsive mt-2" style="max-height:320px;overflow:auto;">
+                                    <table class="table table-hover table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:40px"></th>
+                                                <th>Name</th>
+                                                <th>Employee Code</th>
+                                                <th>Organization</th>
+                                                <th>Department</th>
+                                                <th>Gender</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="approverConfirmBtn">Confirm</button>
+                            <input type="hidden" id="opType" />
+                            <input type="hidden" id="msgID"  />
                         </div>
                     </div>
                 </div>
@@ -113,18 +180,19 @@
                             <iframe id="fview" class="h-500 w-100"></iframe>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal" data-I18n="all.Cancel">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
     <script src="../../js/common/jquery.min.js"></script>
     <script src="../../js/common/bootstrap.bundle.min.js"></script>
     <script src="../../js/common/common_method.js"></script>
     <script src="../../js/common/sweetalert2.min.js"></script>
     <script src="../../js/common/pageNumber.js"></script>
+    <script src="../../js/common/lan.js"></script>
     <script src="../../js/flowMonitor.js"></script>
 </body>
 </html>

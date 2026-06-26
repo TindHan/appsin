@@ -1,8 +1,10 @@
 ﻿jQuery(function ($) {
     getKw();
+    I18n.init();
 });
 
 function getKw() {
+    let menuLang = localStorage.getItem("language");
     let kw = request("kw");
     $("#kwshow").val(kw);
     if (kw.trim() == "") { Swal.fire("Alert!", "Search keyword cannot be null!", "erorr"); return; }
@@ -21,7 +23,7 @@ function getKw() {
                 funcHtml += `     <li class="hover-bg-color">
                                     <div class="row border-bottom  ">
                                         <div class="col-9 pt-3 pb-2_5">
-                                            <h6 class="text-truncate font-size-14">${t.appName} > ${t.moduleName} > ${t.menuName}</h6>
+                                            <h6 class="text-truncate font-size-14">${t.appName} > ${menuLang == "CN" ?t.moduleNameCN:t.moduleNameEN} > ${menuLang=="CN"?t.menuNameCN:t.menuNameEN}</h6>
                                             <span>${t.menuDescription == null ? 'No description' : t.menuDescription}</span>
                                         </div>
                                     </div>

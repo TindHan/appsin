@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getFlowInstance();
     bindEvents();
+    I18n.init();
 })
 function getFlowInstance() {
     let nodeID = request("nid");

@@ -240,8 +240,9 @@ namespace appsin.Bizcs.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"select logID,psnID,(select psnName from psn_psnMain p where p.psnID=TT.psnID) as psnName,
-                            appID,(select appName from app_appMain app where app.appID=TT.appID) as appName,
-                            menuID,(select menuName from sys_menu mn where mn.menuID=TT.menuID) as menuName,
+                            appID,(select appName from app_appMain app where app.appID=TT.appID) as appName,menuID,
+                            (select menuNameEN from sys_menu mn where mn.menuID=TT.menuID) as menuNameEN,
+                            (select menuNameCN from sys_menu mn where mn.menuID=TT.menuID) as menuNameCN,
                             goStr,goTime,callBackTime,callBackRes ");
             strSql.Append(" FROM ( ");
             strSql.Append(" SELECT ROW_NUMBER() OVER (");

@@ -23,7 +23,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -124,7 +124,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -159,7 +159,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -174,7 +174,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -247,7 +247,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -262,7 +262,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -304,7 +304,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -346,7 +346,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -443,7 +443,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -673,7 +673,7 @@ namespace appsin.Controllers
                     LogHelper.logRecord(psnID, "logout", "fail", "", "", "");
 
                     res.status = 0;
-                    res.message = "uToken is invalid!";
+                    res.message = "Incorrect uToken!";
                     res.resData = null;
                 }
                 else
@@ -698,7 +698,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -775,7 +775,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -854,7 +854,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -930,7 +930,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)

@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getPsnInfo();
     bindEvent();
+    I18n.init();
 })
 
 function getPsnInfo() {

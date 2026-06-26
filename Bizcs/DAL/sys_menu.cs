@@ -19,15 +19,16 @@ namespace appsin.Bizcs.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into sys_menu(");
-            strSql.Append("menuPK,parentID,parentPK,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus)");
+            strSql.Append("menuPK,parentID,parentPK,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus)");
             strSql.Append(" values (");
-            strSql.Append("@menuPK,@parentID,@parentPK,@menuName,@menuAppID,@menuLevel,@menuType,@menuLink,@menuIcon,@menuDescription,@menuMemo1,@menuMemo2,@menuMemo3,@menuMemo4,@menuMemo5,@displayOrder,@createUser,@createTime,@menuStatus)");
+            strSql.Append("@menuPK,@parentID,@parentPK,@menuNameEN,@menuNameCN,@menuAppID,@menuLevel,@menuType,@menuLink,@menuIcon,@menuDescription,@menuMemo1,@menuMemo2,@menuMemo3,@menuMemo4,@menuMemo5,@displayOrder,@createUser,@createTime,@menuStatus)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@menuPK", SqlDbType.VarChar,100),
                     new SqlParameter("@parentID", SqlDbType.Int,4),
                     new SqlParameter("@parentPK", SqlDbType.VarChar,100),
-                    new SqlParameter("@menuName", SqlDbType.VarChar,100),
+                    new SqlParameter("@menuNameEN", SqlDbType.VarChar,100),
+                    new SqlParameter("@menuNameCN", SqlDbType.VarChar,100),
                     new SqlParameter("@menuAppID", SqlDbType.Int,4),
                     new SqlParameter("@menuLevel", SqlDbType.Int,4),
                     new SqlParameter("@menuType", SqlDbType.VarChar,100),
@@ -46,22 +47,23 @@ namespace appsin.Bizcs.DAL
             parameters[0].Value = model.menuPK;
             parameters[1].Value = model.parentID;
             parameters[2].Value = model.parentPK;
-            parameters[3].Value = model.menuName;
-            parameters[4].Value = model.menuAppID;
-            parameters[5].Value = model.menuLevel;
-            parameters[6].Value = model.menuType;
-            parameters[7].Value = model.menuLink;
-            parameters[8].Value = model.menuIcon;
-            parameters[9].Value = model.menuDescription;
-            parameters[10].Value = model.menuMemo1;
-            parameters[11].Value = model.menuMemo2;
-            parameters[12].Value = model.menuMemo3;
-            parameters[13].Value = model.menuMemo4;
-            parameters[14].Value = model.menuMemo5;
-            parameters[15].Value = model.displayOrder;
-            parameters[16].Value = model.createUser;
-            parameters[17].Value = model.createTime;
-            parameters[18].Value = model.menuStatus;
+            parameters[3].Value = model.menuNameEN;
+            parameters[4].Value = model.menuNameCN;
+            parameters[5].Value = model.menuAppID;
+            parameters[6].Value = model.menuLevel;
+            parameters[7].Value = model.menuType;
+            parameters[8].Value = model.menuLink;
+            parameters[9].Value = model.menuIcon;
+            parameters[10].Value = model.menuDescription;
+            parameters[11].Value = model.menuMemo1;
+            parameters[12].Value = model.menuMemo2;
+            parameters[13].Value = model.menuMemo3;
+            parameters[14].Value = model.menuMemo4;
+            parameters[15].Value = model.menuMemo5;
+            parameters[16].Value = model.displayOrder;
+            parameters[17].Value = model.createUser;
+            parameters[18].Value = model.createTime;
+            parameters[19].Value = model.menuStatus;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -83,7 +85,8 @@ namespace appsin.Bizcs.DAL
             strSql.Append("menuPK=@menuPK,");
             strSql.Append("parentID=@parentID,");
             strSql.Append("parentPK=@parentPK,");
-            strSql.Append("menuName=@menuName,");
+            strSql.Append("menuNameEN=@menuNameEN,");
+            strSql.Append("menuNameCN=@menuNameCN,");
             strSql.Append("menuAppID=@menuAppID,");
             strSql.Append("menuLevel=@menuLevel,");
             strSql.Append("menuType=@menuType,");
@@ -104,7 +107,8 @@ namespace appsin.Bizcs.DAL
                     new SqlParameter("@menuPK", SqlDbType.VarChar,100),
                     new SqlParameter("@parentID", SqlDbType.Int,4),
                     new SqlParameter("@parentPK", SqlDbType.VarChar,100),
-                    new SqlParameter("@menuName", SqlDbType.VarChar,100),
+                    new SqlParameter("@menuNameEN", SqlDbType.VarChar,100),
+                    new SqlParameter("@menuNameCN", SqlDbType.VarChar,100),
                     new SqlParameter("@menuAppID", SqlDbType.Int,4),
                     new SqlParameter("@menuLevel", SqlDbType.Int,4),
                     new SqlParameter("@menuType", SqlDbType.VarChar,100),
@@ -124,23 +128,24 @@ namespace appsin.Bizcs.DAL
             parameters[0].Value = model.menuPK;
             parameters[1].Value = model.parentID;
             parameters[2].Value = model.parentPK;
-            parameters[3].Value = model.menuName;
-            parameters[4].Value = model.menuAppID;
-            parameters[5].Value = model.menuLevel;
-            parameters[6].Value = model.menuType;
-            parameters[7].Value = model.menuLink;
-            parameters[8].Value = model.menuIcon;
-            parameters[9].Value = model.menuDescription;
-            parameters[10].Value = model.menuMemo1;
-            parameters[11].Value = model.menuMemo2;
-            parameters[12].Value = model.menuMemo3;
-            parameters[13].Value = model.menuMemo4;
-            parameters[14].Value = model.menuMemo5;
-            parameters[15].Value = model.displayOrder;
-            parameters[16].Value = model.createUser;
-            parameters[17].Value = model.createTime;
-            parameters[18].Value = model.menuStatus;
-            parameters[19].Value = model.menuID;
+            parameters[3].Value = model.menuNameEN;
+            parameters[4].Value = model.menuNameCN;
+            parameters[5].Value = model.menuAppID;
+            parameters[6].Value = model.menuLevel;
+            parameters[7].Value = model.menuType;
+            parameters[8].Value = model.menuLink;
+            parameters[9].Value = model.menuIcon;
+            parameters[10].Value = model.menuDescription;
+            parameters[11].Value = model.menuMemo1;
+            parameters[12].Value = model.menuMemo2;
+            parameters[13].Value = model.menuMemo3;
+            parameters[14].Value = model.menuMemo4;
+            parameters[15].Value = model.menuMemo5;
+            parameters[16].Value = model.displayOrder;
+            parameters[17].Value = model.createUser;
+            parameters[18].Value = model.createTime;
+            parameters[19].Value = model.menuStatus;
+            parameters[20].Value = model.menuID;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -185,7 +190,7 @@ namespace appsin.Bizcs.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 menuID,menuPK,parentID,parentPK,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus from sys_menu ");
+            strSql.Append("select  top 1 menuID,menuPK,parentID,parentPK,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus from sys_menu ");
             strSql.Append(" where menuID=@menuID");
             SqlParameter[] parameters = {
                     new SqlParameter("@menuID", SqlDbType.Int,4)
@@ -229,9 +234,13 @@ namespace appsin.Bizcs.DAL
                 {
                     model.parentPK = row["parentPK"].ToString();
                 }
-                if (row["menuName"] != null)
+                if (row["menuNameEN"] != null)
                 {
-                    model.menuName = row["menuName"].ToString();
+                    model.menuNameEN = row["menuNameEN"].ToString();
+                }
+                if (row["menuNameCN"] != null)
+                {
+                    model.menuNameCN = row["menuNameCN"].ToString();
                 }
                 if (row["menuAppID"] != null && row["menuAppID"].ToString() != "")
                 {
@@ -303,7 +312,7 @@ namespace appsin.Bizcs.DAL
         public DataSet GetList(string strWhere, params SqlParameter[] parms)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select menuID,menuPK,parentID,parentPK,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus ");
+            strSql.Append("select menuID,menuPK,parentID,parentPK,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,menuMemo1,menuMemo2,menuMemo3,menuMemo4,menuMemo5,displayOrder,createUser,createTime,menuStatus ");
             strSql.Append(" FROM sys_menu ");
             if (strWhere.Trim() != "")
             {
@@ -374,7 +383,7 @@ namespace appsin.Bizcs.DAL
         public DataSet GetAdminMenu()
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT menuID,parentID,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
+            strSql.Append(@"SELECT menuID,parentID,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
                             (select psnName from psn_psnMain p where p.psnID=createUser) as createUser, createTime,menuStatus 
                             from sys_menu where menuStatus=1 and (menuID=10011 or menuID=10016 or menuID=10019 or parentID=10011 or parentID=10016 or parentID= 10019)
                             order by menuLevel,displayOrder");
@@ -386,7 +395,7 @@ namespace appsin.Bizcs.DAL
         public DataSet GetOsrzMenu(int psnID)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT menuID,parentID,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
+            strSql.Append(@"SELECT menuID,parentID,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
                             (select psnName from psn_psnMain p where p.psnID=createUser) as createUser, createTime,menuStatus 
                             from sys_menu where menuID not in (10011,10016,10019) and (menuID in (10000,10001,10002,10003,10004) or menuID in
                             (SELECT menuID FROM sys_menu WHERE menuType<>'moblink' and menuStatus=1 and menuID in 
@@ -432,7 +441,7 @@ namespace appsin.Bizcs.DAL
         public DataSet GetOsrzMobMenu(int psnID)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT menuID,parentID,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
+            strSql.Append(@"SELECT menuID,parentID,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder,
                             (select psnName from psn_psnMain p where p.psnID=createUser) as createUser, createTime,menuStatus 
                             from sys_menu where menuType='moblink' and menuID in
                             (SELECT menuID FROM sys_menu WHERE menuStatus=1 and menuID in 
@@ -479,7 +488,7 @@ namespace appsin.Bizcs.DAL
         public DataSet GetSimpleList(string strWhere, params SqlParameter[] parms)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select menuID,parentID,menuName,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder, (select psnName from psn_psnMain p where p.psnID=createUser) as createUser, createTime,menuStatus ");
+            strSql.Append("select menuID,parentID,menuNameEN,menuNameCN,menuAppID,menuLevel,menuType,menuLink,menuIcon,menuDescription,displayOrder, (select psnName from psn_psnMain p where p.psnID=createUser) as createUser, createTime,menuStatus ");
             strSql.Append(" FROM sys_menu as m");
             if (strWhere.Trim() != "")
             {
@@ -491,10 +500,11 @@ namespace appsin.Bizcs.DAL
         public DataSet GetSearchList(string kw)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select menuPK,menuName,menuDescription, ");
-            strSql.Append("(select menuName from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleName, ");
+            strSql.Append("select menuPK,menuNameEN,menuNameCN,menuDescription, ");
+            strSql.Append("(select menuNameEN from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleNameEN, ");
+            strSql.Append("(select menuNameCN from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleNameCN, ");
             strSql.Append("(select appName from app_appMain app where app.appID=menuAppID) as appName ");
-            strSql.Append(" FROM sys_menu menu1 where parentID not in (10011,10016,10019) and menuStatus=1 and menuLevel=2 and ( menuName like @kw1 or menuDescription like @kw2 )");
+            strSql.Append(" FROM sys_menu menu1 where parentID not in (10011,10016,10019) and menuStatus=1 and menuLevel=2 and ( menuNameEN like @kw1 or menuNameEN like @kw1 or menuDescription like @kw2 )");
             SqlParameter[] parameters = {
                     new SqlParameter("@kw1", SqlDbType.VarChar,150),
                     new SqlParameter("@kw2", SqlDbType.VarChar,150)
@@ -508,7 +518,8 @@ namespace appsin.Bizcs.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select menuPK,menuName,menuDescription, ");
-            strSql.Append("(select menuName from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleName, ");
+            strSql.Append("(select menuNameEN from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleNameEN, ");
+            strSql.Append("(select menuNameCN from sys_menu menu2 where menu2.menuID=menu1.parentID and menuLevel=1) as moduleNameCN, ");
             strSql.Append("(select appName from app_appMain app where app.appID=menuAppID) as appName ");
             strSql.Append(" FROM sys_menu menu1 where parentID in (10011,10016,10019) and menuStatus=1 and menuLevel=2 and ( menuName like @kw1 or menuDescription like @kw2 )");
             SqlParameter[] parameters = {

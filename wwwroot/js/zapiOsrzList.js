@@ -2,6 +2,7 @@
     getApp();
     getApiOsrz(1);
     bindEvent();
+    I18n.init();
 });
 
 function getApp() {

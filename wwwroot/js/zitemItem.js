@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getMenuDetail();
     bindEvent();
+    I18n.init();
 })
 
 function getMenuDetail() {

@@ -4,8 +4,10 @@
     {
         public string menuPK {  get; set; }
         public string appName { get; set; }
-        public string moduleName { get; set; }
-        public string menuName { get; set; }
+        public string moduleNameEN { get; set; }
+        public string moduleNameCN { get; set; }
+        public string menuNameEN { get; set; }
+        public string menuNameCN { get; set; }
         public string menuDescription { get; set; }
     }
     public class taskList

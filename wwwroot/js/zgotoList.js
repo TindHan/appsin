@@ -1,13 +1,14 @@
 ﻿jQuery(function ($) {
     getLog(1);
     bindEvent();
+    I18n.init();
 });
 
 function queryList(pageIndex) {
     getLog(pageIndex);
 }
 function getLog(pageIndex) {
-
+    let menuLang = (localStorage.getItem("language") == "CN" ? "menuNameCN" : "menuNameEN");
     var obj = new Object();
     obj.uToken = localStorage.getItem("uToken");
     obj.action = "query getApi";
@@ -60,7 +61,7 @@ function getLog(pageIndex) {
                 listHtml += '    <td>' + result.resData[i]["psnID"] + '</td>';
                 listHtml += '    <td>' + result.resData[i]["appName"] + '</td>';
                 listHtml += '    <td>' + result.resData[i]["appID"] + '</td>';
-                listHtml += '    <td>' + result.resData[i]["menuName"] + '</td>';
+                listHtml += '    <td>' + result.resData[i][menuLang] + '</td>';
                 listHtml += '    <td>' + result.resData[i]["menuID"] + '</td>';
                 listHtml += '    <td>' + result.resData[i]["goTime"] + '</td>';
                 listHtml += '    <td>' + result.resData[i]["goStr"] + '</td>';
@@ -76,7 +77,7 @@ function getLog(pageIndex) {
             $("#paginationArea").html(pagination);
         }
         else {
-            listHtml += "<tr><td colspan='9' class='text-center'>No Result!</td></tr></tbody></table>";
+            listHtml += "<tr><td colspan='11' class='text-center'>No Data!</td></tr></tbody></table>";
             $("#tblArea").html(listHtml);
         }
         

@@ -60,7 +60,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -123,7 +123,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -188,7 +188,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -245,7 +245,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -307,7 +307,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -365,7 +365,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -431,7 +431,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -487,7 +487,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -557,7 +557,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -630,7 +630,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -687,7 +687,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -753,7 +753,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -798,7 +798,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;

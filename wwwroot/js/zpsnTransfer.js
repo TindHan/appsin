@@ -4,6 +4,7 @@
     getOnType();
     getOnStatus();
     bindEvent();
+    I18n.init();
 })
 
 function getPsnInfo() {

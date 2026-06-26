@@ -4172,7 +4172,7 @@ div.dataTables_wrapper div.dataTables_info {
     }
 
 .auth-bg {
-    background-image: url(/img/auth-bg.jpg);
+    background-image: url(/img/login_bg_cn.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat
@@ -4181,6 +4181,8 @@ div.dataTables_wrapper div.dataTables_info {
     .auth-bg .bg-overlay {
         opacity: .6
     }
+
+
 
 @media (min-width:768px) {
     .auth-bg {
@@ -5666,4 +5668,8 @@ body {
 {
     pointer-events: none;
     opacity: 0.5; /* 可选：降低透明度以显示禁用状态 */
+}
+
+.aClickable {
+    cursor: pointer;
 }

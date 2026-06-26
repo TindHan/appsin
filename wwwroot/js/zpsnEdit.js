@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     bindEvent();
     getOrgList();
+    I18n.init();
 })
 
 function getOrgList() {
@@ -219,37 +220,46 @@ function bindEvent() {
         }
     })
 
+
     $("#imgUp").on("click", function () {
-        $("#imgFile").click();
+        $("#cropper").removeClass("invisible");
     })
 
-    $("#imgFile").on("change", function () {
-        var avatar = new Image();
-        avatar = this.files[0];
-        if (avatar.size < 1024000) {
-            const reader = new FileReader();
-            var iss = true;
-            reader.onload = (e) => {
-                getImgSizeFromBase64(e.target.result, function (size) {
-                    var wh = size.width / size.height * 10;
-                    if (wh > 7 && wh < 8) {
-                        $("#imgAvatar").attr("src", e.target.result);
-                    }
-                    else {
-                        iss = false;
-                        Swal.fire("Error!", "The picture dimension must be 250*350,please adjust your picture to proper dimension!")
-                    }
-                })
-            }
-            if (iss) {
-                reader.readAsDataURL(avatar);
-            }
-        }
-        else {
-            Swal.fire("Error!", "The picture size must be less than 1M,please adjust your picture to proper size!")
-        }
-
+    $("#closeCropper").on("click", function () {
+        $("#cropper").addClass("invisible");
     })
+
+    //$("#imgUp").on("click", function () {
+    //    $("#imgFile").click();
+    //})
+
+    //$("#imgFile").on("change", function () {
+    //    var avatar = new Image();
+    //    avatar = this.files[0];
+    //    if (avatar.size < 1024000) {
+    //        const reader = new FileReader();
+    //        var iss = true;
+    //        reader.onload = (e) => {
+    //            getImgSizeFromBase64(e.target.result, function (size) {
+    //                var wh = size.width / size.height * 10;
+    //                if (wh > 7 && wh < 8) {
+    //                    $("#imgAvatar").attr("src", e.target.result);
+    //                }
+    //                else {
+    //                    iss = false;
+    //                    Swal.fire("Error!", "The picture dimension must be 250*350,please adjust your picture to proper dimension!")
+    //                }
+    //            })
+    //        }
+    //        if (iss) {
+    //            reader.readAsDataURL(avatar);
+    //        }
+    //    }
+    //    else {
+    //        Swal.fire("Error!", "The picture size must be less than 1M,please adjust your picture to proper size!")
+    //    }
+
+    //})
 
 
 }

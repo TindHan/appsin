@@ -4,6 +4,7 @@
     getMyNotices();
     getMyMessages();
     bindEvents();
+    I18n.init();
 });
 
 function getNumbers() {
@@ -52,14 +53,15 @@ function getMyNotices() {
                                                         <span>${t.createTime.substr(0, 10)}</span>
                                                     </div>
                                                     <div class="col-3 p-4 d-flex justify-content-end">`
-                        + (t.readCount == 0 ? `<span class="badge bg-warning rounded-pill pt-1">unread</span>
+                        + (t.readCount == 0 ? `<span class="badge bg-warning rounded-pill pt-1">New</span>
                                                        &nbsp;&nbsp;`: ``)
-                        + `<a href="#" onclick="getNoticeDetail(${t.noticeID})">Detail</a>
+                        + `<a href="#" onclick="getNoticeDetail(${t.noticeID})">${I18n.t('all.Detail')}</a>
                                                                                 </div>
                                                                             </div>
                                                                         </li>`);
 
                 })
+
             }
         }
     })
@@ -102,8 +104,8 @@ function getMyMessages() {
                                             </div>
                                             <div class="flex-shrink-0">
                                                 <div class="d-flex justify-content-end pt-2">`
-                        + (t.readCount == 0 ? `     <span class="badge bg-warning rounded-pill">unread</span>&nbsp;&nbsp;` : ``)
-                        + `                          <a href="#" onclick="getMsgDetail(${t.msgID})">Detail</a>
+                        + (t.readCount == 0 ? `     <span class="badge bg-warning rounded-pill">New</span>&nbsp;&nbsp;` : ``)
+                        + `                          <a href="#" onclick="getMsgDetail(${t.msgID})">${I18n.t('all.Detail')}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -218,7 +220,7 @@ function getMyTasks() {
                                                 </div>
                                               </div>
                                             </div>
-                                            <button class="btn btn-sm btn-outline-primary btnDetail ms-2" data-id="${t.taskID}">Detail</button>
+                                            <button class="btn btn-sm btn-outline-primary btnDetail ms-2 width-60" data-id="${t.taskID}">${I18n.t('all.Detail')}</button>
                                           </div>
                                         `);
                 });

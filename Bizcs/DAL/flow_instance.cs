@@ -427,7 +427,7 @@ namespace appsin.Bizcs.DAL
             strSql.Append("(select orgName from org_orgMain where orgID = (select unitID from psn_psnMain where psnID = objID)) as unitName, ");
             strSql.Append("(select max(readTime) from app_messageRead rd where rd.MsgID = msg.msgID) as readTime, ");
             strSql.Append("(select count(1) from app_messageRead rd where rd.MsgID = msg.msgID) as readCount ");
-            strSql.Append("from app_messages msg where objType = 'psn' and bizType = 'FlowNode' and bizID in ");
+            strSql.Append("from app_messages msg where msgStatus=1 and objType = 'psn' and bizType = 'FlowNode' and bizID in ");
             strSql.Append("(select nodeID from flow_instanceNode where instanceID = @inst1 and prevNodePK = ");
             strSql.Append("(select top 1 doneNodePK from flow_instance where instanceID = @inst2)) ");
             SqlParameter[] parameters = {

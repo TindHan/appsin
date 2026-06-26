@@ -1,5 +1,6 @@
 ﻿jQuery(function ($) {
     getData();
+    I18n.init();
 });
 
 function getData() {

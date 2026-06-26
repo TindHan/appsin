@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getParentMenu();
     bindEvent();
+    I18n.init();
 })
 
 function getParentMenu() {
@@ -32,8 +33,10 @@ function getMenuDetail() {
     var url = "/core/api/Users/getMenuDetail";
     httpPost(url, obj, function (result) {
         if (result.status == 1) {
+            console.log(result);
             $("#menuID").val(result.resData[0].menuID);
-            $("#menuName").val(result.resData[0].menuName);
+            $("#menuNameEN").val(result.resData[0].menuNameEN);
+            $("#menuNameCN").val(result.resData[0].menuNameCN);
             $("#menuType").val(result.resData[0].menuType);
             $("#menuDesc").val(result.resData[0].menuDescription);
             $("#menuIcon").val(result.resData[0].menuIcon);
@@ -55,7 +58,7 @@ function getMenuDetail() {
 function bindEvent() {
     $("#toSave").on("click", function () {
         var subObj = formArrToObj($("#menuInfo").serializeArray());
-        if (subObj.menuName.trim() == "" || subObj.menuDesc.trim() == "") {
+        if (subObj.menuNameEN.trim() == "" ||subObj.menuNameCN.trim() == "" || subObj.menuDesc.trim() == "") {
             Swal.fire("Error!", "Menu name and description is required!");
         }
         else if (subObj.menuLink.trim() == "") {

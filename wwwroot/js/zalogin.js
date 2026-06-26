@@ -2,6 +2,7 @@
     getwkey();
     getCaptcha();
     bindEvents();
+    I18n.init();
 });
 
 function bindEvents() {

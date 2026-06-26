@@ -310,6 +310,13 @@ namespace appsin.Bizcs.DAL
             }
             return DbHelperSQL.Query(strSql.ToString(),parms);
         }
+        public DataSet isNodeApproved(int msgID)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" SELECT count(1) as icount FROM flow_approveLog fal INNER JOIN flow_instanceNode fin ON fal.instanceID = fin.instanceID  AND fal.nodeID = fin.nodeID");
+            strSql.Append(" INNER JOIN app_messages am  ON fin.nodeID = am.bizID WHERE am.msgID = "+msgID+"  AND am.bizType = 'FlowNode'");
+            return DbHelperSQL.Query(strSql.ToString());
+        }
         #endregion  ExtensionMethod
     }
 }

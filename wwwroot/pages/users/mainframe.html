@@ -41,7 +41,7 @@
 
                     <form class="app-search d-none d-lg-block">
                         <div class="position-relative">
-                            <input id="txtSearch" type="text" class="form-control" placeholder="Search Functions"/>
+                            <input id="txtSearch" type="text" class="form-control"  data-I18n-placeholder="dsb.searchFunc" placeholder="Search Functions"/>
                             <button id="btnSearch" class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
                         </div>
                     </form>
@@ -55,10 +55,10 @@
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#" id="toMyDetail"><i class="mdi mdi-face-man font-size-16 align-middle me-1"></i> My Profile</a>
-                            <a class="dropdown-item" href="#" id="toAlterPwd"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i>Change Password</a>
+                            <a class="dropdown-item" href="#" id="toMyDetail"><i class="mdi mdi-face-man font-size-16 align-middle me-1"></i><span data-I18n='dsb.profile'>My Profile</span></a>
+                            <a class="dropdown-item" href="#" id="toAlterPwd"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i><span data-I18n='dsb.changePwd'>Change Password</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" id="logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                            <a class="dropdown-item" href="#" id="logout"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> <span data-I18n='dsb.logout'>Logout</span></a>
                         </div>
                     </div>
 
@@ -115,6 +115,7 @@
     <script src="../../js/common/sweetalert2.min.js"></script>
     <script src="../../js/common/metisMenu.min.js"></script>
     <script src="../../js/common/app.js"></script>
-    <script src="../../js/zmainframe.js"></script>
+    <script src="../../js/common/lan.js"></script>
+    <script src="../../js/mainframe.js"></script>
 </body>
 </html>

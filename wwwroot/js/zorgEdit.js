@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     loadOrgList();
     bindEvent();
+    I18n.init();
 });
 
 function loadOrgList() {

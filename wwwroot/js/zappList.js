@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getApp(1);
     bindEvent();
+    I18n.init();
 });
 
 function queryList(pageIndex) {

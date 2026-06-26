@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getAppDetail();
     bindEvent();
+    I18n.init();
 })
 function getAppDetail() {
     var aid = request("i");
@@ -32,7 +33,8 @@ function getMenuDetail() {
     httpPost(url, obj, function (result) {
         if (result.status == 1) {
             $("#menuID").val(result.resData[0].menuID);
-            $("#menuName").val(result.resData[0].menuName);
+            $("#menuNameEN").val(result.resData[0].menuNameEN);
+            $("#menuNameCN").val(result.resData[0].menuNameCN);
             $("#menuDesc").val(result.resData[0].menuDescription);
             $("#menuIcon").val(result.resData[0].menuIcon);
             $("#menuLink").val(result.resData[0].menuLink);
@@ -49,7 +51,7 @@ function getMenuDetail() {
 function bindEvent() {
     $("#toSave").on("click", function () {
         var subObj = formArrToObj($("#moduleInfo").serializeArray());
-        if (subObj.menuName.trim() == "" || subObj.menuDesc.trim() == "") {
+        if (subObj.menuNameEN.trim() == "" ||subObj.menuNameCN.trim() == "" || subObj.menuDesc.trim() == "") {
             Swal.fire("Error!", "Module name and description is required!");
         }
         else {

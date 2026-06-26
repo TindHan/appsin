@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getNoticeList(1);
     bindEvent();
+    I18n.init();
 })
 const editor = new AppsinRichTextEditor('nContent');
 function queryList(pageIndex) {

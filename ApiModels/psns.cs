@@ -20,7 +20,8 @@ namespace appsin.Models
         public int appID { get; set; }
         public string appName { get; set; }
         public int menuID { get; set; }
-        public string menuName { get; set; }
+        public string menuNameCN { get; set; }
+        public string menuNameEN { get; set; }
         public string goStr { get; set; }
         public DateTime goTime { get; set; }
         public DateTime callBackTime { get; set; }
@@ -111,6 +112,28 @@ namespace appsin.Models
         public string psnMemo3 { get; set; }
         public string psnMemo4 { get; set; }
         public string psnMemo5 { get; set; }
+        public DateTime createTime { get; set; }
+
+    }
+
+    public class iPsnSech
+    {
+        public int psnID { get; set; }
+        public int unitID { get; set; }
+        public int deptID { get; set; }
+        public int postID { get; set; }
+        public string unitName { get; set; }
+        public string deptName { get; set; }
+        public string postName { get; set; }
+        public string psnName { get; set; }
+        public string psnCode { get; set; }
+        public string idTypeName { get; set; }
+        public string idNo { get; set; }
+        public int onStatus { get; set; }
+        public string onStatusName { get; set; }
+        public int onType { get; set; }
+        public string onTypeName { get; set; }
+        public string psnSex { get; set; }
         public DateTime createTime { get; set; }
 
     }

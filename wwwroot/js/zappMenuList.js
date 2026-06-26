@@ -2,6 +2,7 @@
     bindNull();
     getApp();
     bindEvent();
+    I18n.init();
 })
 
 function getApp() {
@@ -50,7 +51,8 @@ function getModule() {
                 moduleHtml += '    <thead class="table-secondary table-header-fixed">';
                 moduleHtml += '        <tr>';
                 moduleHtml += '            <th>No.</th>';
-                moduleHtml += '            <th>Module Name</th>';
+                moduleHtml += '            <th>Module Name EN</th>';
+                moduleHtml += '            <th>Module Name CN</th>';
                 moduleHtml += '            <th>Module Description</th>';
                 moduleHtml += '            <th>Module Icon</th>';
                 moduleHtml += '            <th>Create User</th>';
@@ -63,7 +65,8 @@ function getModule() {
                 for (var j = 0; j < result.resData.length > 0; j++) {
                     moduleHtml += '        <tr data-id="' + result.resData[j].menuID + '">';
                     moduleHtml += '            <td>' + (j + 1) + '</td>';
-                    moduleHtml += '            <td>' + result.resData[j].menuName + '</td>';
+                    moduleHtml += '            <td>' + result.resData[j].menuNameEN + '</td>';
+                    moduleHtml += '            <td>' + result.resData[j].menuNameCN + '</td>';
                     moduleHtml += '            <td>' + result.resData[j].menuDescription + '</td>';
                     moduleHtml += '            <td>' + result.resData[j].menuIcon + '</td>';
                     moduleHtml += '            <td>' + result.resData[j].createUser + '</td>';
@@ -110,7 +113,8 @@ function getMenu() {
             menuHtml += '    <thead class="table-secondary table-header-fixed">';
             menuHtml += '        <tr>';
             menuHtml += '            <th>No.</th>';
-            menuHtml += '            <th>Menu Name</th>';
+            menuHtml += '            <th>Menu Name EN</th>';
+            menuHtml += '            <th>Menu Name CN</th>';
             menuHtml += '            <th>Menu Description</th>';
             menuHtml += '            <th>Menu Icon</th>';
             menuHtml += '            <th>Menu Link</th>';
@@ -125,7 +129,8 @@ function getMenu() {
                 for (var k = 0; k < result.resData.length > 0; k++) {
                     menuHtml += '        <tr data-id="' + result.resData[k].menuID + '">';
                     menuHtml += '            <td>' + (k + 1) + '</td>';
-                    menuHtml += '            <td>' + result.resData[k].menuName + '</td>';
+                    menuHtml += '            <td>' + result.resData[k].menuNameEN + '</td>';
+                    menuHtml += '            <td>' + result.resData[k].menuNameCN + '</td>';
                     menuHtml += '            <td>' + (result.resData[k].menuDescription == null ? "" : result.resData[k].menuDescription) + '</td>';
                     menuHtml += '            <td>' + (result.resData[k].menuIcon == null ? "" : result.resData[k].menuIcon) + '</td>';
                     menuHtml += '            <td>' + result.resData[k].menuLink + '</td>';
@@ -154,7 +159,8 @@ function bindNull() {
     moduleHtml += '    <thead class="table-secondary table-header-fixed">';
     moduleHtml += '        <tr>';
     moduleHtml += '            <th>No.</th>';
-    moduleHtml += '            <th>Module Name</th>';
+    moduleHtml += '            <th>Module Name EN</th>';
+    moduleHtml += '            <th>Module Name CN</th>';
     moduleHtml += '            <th>Module Description</th>';
     moduleHtml += '            <th>Module Icon</th>';
     moduleHtml += '            <th>Create User</th>';
@@ -164,14 +170,15 @@ function bindNull() {
     moduleHtml += '        </tr>';
     moduleHtml += '    </thead>';
     moduleHtml += '    <tbody>';
-    moduleHtml += "<tr><td colspan='8' class='text-center'>No data!</td></tr></tbody></table>";
+    moduleHtml += "<tr><td colspan='9' class='text-center'>No data!</td></tr></tbody></table>";
     $("#tblModule").html(moduleHtml);
     var menuHtml = "";
     menuHtml += '<table id = "dt2" class="table table-bordered dt-responsive table-striped w-100" >';
     menuHtml += '    <thead class="table-secondary table-header-fixed">';
     menuHtml += '        <tr>';
     menuHtml += '            <th>No.</th>';
-    menuHtml += '            <th>Menu Name</th>';
+    menuHtml += '            <th>Menu Name EN</th>';
+    menuHtml += '            <th>Menu Name CN</th>';
     menuHtml += '            <th>Menu Description</th>';
     menuHtml += '            <th>Menu Icon</th>';
     menuHtml += '            <th>Menu Link</th>';
@@ -182,7 +189,7 @@ function bindNull() {
     menuHtml += '        </tr>';
     menuHtml += '    </thead>';
     menuHtml += '    <tbody>';
-    menuHtml += "<tr><td colspan='9' class='text-center'>No data!</td></tr></tbody></table>";
+    menuHtml += "<tr><td colspan='10' class='text-center'>No data!</td></tr></tbody></table>";
     $("#tblMenu").html(menuHtml);
 
 }

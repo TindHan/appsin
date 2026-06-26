@@ -16,6 +16,7 @@ $(function () {
     bindEvents();
     bindResize();
     getFlow();
+    I18n.init();
 });
 
 function initDefaultNodes() {

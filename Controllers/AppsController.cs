@@ -20,7 +20,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -31,7 +31,7 @@ namespace appsin.Controllers
                 res.resData = null;
             }
 
-            else if (!VerifyHelper.isSafe(reqModel.reqData[0].menuName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].displayOrder) || !VerifyHelper.isSafe(reqModel.reqData[0].menuStatus) || !VerifyHelper.isSafe(reqModel.reqData[0].menuID) || !VerifyHelper.isSafe(reqModel.reqData[0].appName))
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0].menuNameEN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameCN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].displayOrder) || !VerifyHelper.isSafe(reqModel.reqData[0].menuStatus) || !VerifyHelper.isSafe(reqModel.reqData[0].menuID) || !VerifyHelper.isSafe(reqModel.reqData[0].appName))
             {
                 res.status = 110;
                 res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
@@ -43,7 +43,8 @@ namespace appsin.Controllers
                 Bizcs.BLL.sys_menu menuBll = new Bizcs.BLL.sys_menu();
                 Bizcs.Model.sys_menu menuModel = menuBll.GetModel(int.Parse(reqModel.reqData[0].menuID));
 
-                menuModel.menuName = reqModel.reqData[0].menuName;
+                menuModel.menuNameEN = reqModel.reqData[0].menuNameEN;
+                menuModel.menuNameCN = reqModel.reqData[0].menuNameCN;
                 menuModel.menuType = reqModel.reqData[0].menuType;
                 menuModel.menuDescription = reqModel.reqData[0].menuDesc;
                 menuModel.menuIcon = reqModel.reqData[0].menuIcon;
@@ -77,7 +78,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count > 0 && VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
@@ -139,7 +140,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -149,7 +150,7 @@ namespace appsin.Controllers
                 res.message = "Request Success,but no data input!";
                 res.resData = null;
             }
-            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameEN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameCN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
             {
                 res.status = 110;
                 res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
@@ -165,7 +166,8 @@ namespace appsin.Controllers
                 menuModel.parentPK = pmenuModel.menuPK;
                 menuModel.parentID = pmenuModel.menuID;
                 menuModel.menuPK = Guid.NewGuid().ToString().ToUpper();
-                menuModel.menuName = reqModel.reqData[0].menuName;
+                menuModel.menuNameEN = reqModel.reqData[0].menuNameEN;
+                menuModel.menuNameCN = reqModel.reqData[0].menuNameCN;
                 menuModel.menuDescription = reqModel.reqData[0].menuDesc;
                 menuModel.menuIcon = reqModel.reqData[0].menuIcon;
                 menuModel.menuLink = reqModel.reqData[0].menuLink;
@@ -203,7 +205,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -213,7 +215,7 @@ namespace appsin.Controllers
                 res.message = "Request Success,but no data input!";
                 res.resData = null;
             }
-            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuName) || VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameEN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameCN) || VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
             {
                 res.status = 110;
                 res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
@@ -224,7 +226,8 @@ namespace appsin.Controllers
             {
                 Bizcs.BLL.sys_menu menuBll = new Bizcs.BLL.sys_menu();
                 Bizcs.Model.sys_menu menuModel = menuBll.GetModel(int.Parse(reqModel.reqData[0].menuID));
-                menuModel.menuName = reqModel.reqData[0].menuName;
+                menuModel.menuNameEN = reqModel.reqData[0].menuNameEN;
+                menuModel.menuNameCN = reqModel.reqData[0].menuNameCN;
                 menuModel.menuDescription = reqModel.reqData[0].menuDesc;
                 menuModel.menuIcon = reqModel.reqData[0].menuIcon;
                 menuModel.menuLink = reqModel.reqData[0].menuLink;
@@ -257,7 +260,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -267,7 +270,7 @@ namespace appsin.Controllers
                 res.message = "Request Success,but no data input!";
                 res.resData = null;
             }
-            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0].appName) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameEN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuNameCN) || !VerifyHelper.isSafe(reqModel.reqData[0].menuDesc) || !VerifyHelper.isSafe(reqModel.reqData[0].menuLink) || !VerifyHelper.isSafe(reqModel.reqData[0].menuIcon))
             {
                 res.status = 110;
                 res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
@@ -279,7 +282,8 @@ namespace appsin.Controllers
                 Bizcs.BLL.sys_menu menuBll = new Bizcs.BLL.sys_menu();
                 Bizcs.Model.sys_menu menuModel = new Bizcs.Model.sys_menu();
                 menuModel.menuPK = Guid.NewGuid().ToString().ToUpper();
-                menuModel.menuName = reqModel.reqData[0].menuName;
+                menuModel.menuNameEN = reqModel.reqData[0].menuNameEN;
+                menuModel.menuNameCN = reqModel.reqData[0].menuNameCN;
                 menuModel.menuDescription = reqModel.reqData[0].menuDesc;
                 menuModel.menuIcon = reqModel.reqData[0].menuIcon;
                 menuModel.menuLink = reqModel.reqData[0].menuLink;
@@ -318,7 +322,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -368,7 +372,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -428,7 +432,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -478,7 +482,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -555,7 +559,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -616,7 +620,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count > 0 && VerifyHelper.IsConvertToInt(reqModel.reqData[0]))

@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getMsgList(1);
     bindEvent();
+    I18n.init();
 })
 
 function queryList(pageIndex) {
@@ -42,7 +43,7 @@ function getMsgList(pageIndex) {
                 listHtml += '    <td>' + result.resData[i]["msgTitle"] + '</td>';
                 listHtml += '    <td>' + subStrText(result.resData[i]["msgContent"], 60) + '</td>';
                 listHtml += '    <td>' + result.resData[i]["createTime"].substr(0, 16).replace('T', '&nbsp;') + '</td>';
-                listHtml += '    <td id="value' + result.resData[i].msgID + '">' + (result.resData[i].readCount == 0 ? '<span class="badge bg-warning rounded-pill pt-1">unread</span>&nbsp;&nbsp;' : '<span class="badge bg-info rounded-pill pt-1">readed</span>&nbsp;&nbsp;') + '</td>';
+                listHtml += '    <td id="value' + result.resData[i].msgID + '">' + (result.resData[i].readCount == 0 ? '<span class="badge bg-warning rounded-pill pt-1">New</span>&nbsp;&nbsp;' : '<span class="badge bg-info rounded-pill pt-1">Read</span>&nbsp;&nbsp;') + '</td>';
                 listHtml += '    <td class="text-center">';
                 listHtml += '        <button type="button" class="btn btn-soft-info waves-effect waves-light btn-sm" name="toDetail" data-id="' + result.resData[i]["msgID"] + '" title="disable"><i class="fas fa-align-justify"></i></button>';
                 listHtml += '    </td>';

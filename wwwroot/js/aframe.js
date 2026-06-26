@@ -2,6 +2,7 @@
     getApp();
     getMenu();
     bindEvents();
+    I18n.init();
 });
 
 function getApp() {
@@ -13,6 +14,7 @@ function getApp() {
 }
 
 function getMenu() {
+    let menuLang = (localStorage.getItem("language") == "CN" ? "menuNameCN" : "menuNameEN");
     var obj = new Object();
     obj.uToken = localStorage.getItem("aToken");
     obj.action = "query menulist";
@@ -25,7 +27,7 @@ function getMenu() {
                 if (result.resData[j]["menuLevel"] == 1) {
                     var menu1 = '<li' + (j == 0 ? ' class="mm-active"' : '') + '><a href="javascript: void(0);" class="has-arrow">';
                     menu1 += '<img src="../../img/menu.svg" width="18"/> &nbsp;';
-                    menu1 += '<span>' + result.resData[j]["menuName"] + '</span></a>';
+                    menu1 += '<span>' + result.resData[j][menuLang] + '</span></a>';
                     menu1 += '<ul id="m1' + result.resData[j]["menuID"] + '"></ul>';
                     menu1 += '</li>';
                     $("#app" + result.resData[j]["menuAppID"]).append(menu1);
@@ -33,10 +35,10 @@ function getMenu() {
                 else {
                     var menu2 = "";
                     if (result.resData[j]["menuAppID"] == 10001) {
-                        menu2 = '<li><a href="' + result.resData[j]["menuLink"] + '" target="iFrameHome" >' + result.resData[j]["menuName"] + '</a></li>';
+                        menu2 = '<li><a href="' + result.resData[j]["menuLink"] + '" target="iFrameHome" >' + result.resData[j][menuLang] + '</a></li>';
                     }
                     else {
-                        menu2 = '<li><a href="#" onclick="redirect(' + result.resData[j]["menuID"] + ')">' + result.resData[j]["menuName"] + '</a></li>';
+                        menu2 = '<li><a href="#" onclick="redirect(' + result.resData[j]["menuID"] + ')">' + result.resData[j][menuLang] + '</a></li>';
                     }
                     $("#m1" + result.resData[j]["parentID"]).append(menu2);
                 }

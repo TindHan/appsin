@@ -49,7 +49,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else
@@ -82,7 +82,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -140,7 +140,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -187,7 +187,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0].taskTitle) && !VerifyHelper.isSafe(reqModel.reqData[0].taskContent) && !VerifyHelper.isSafe(reqModel.reqData[0].taskDeadline.ToString()))
@@ -243,7 +243,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0].taskTitle) || !VerifyHelper.isSafe(reqModel.reqData[0].taskContent) || !VerifyHelper.isSafe(reqModel.reqData[0].taskDeadline.ToString()))
@@ -288,7 +288,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
@@ -330,7 +330,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
@@ -370,7 +370,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0].progressContent) || !VerifyHelper.isSafe(reqModel.reqData[0].taskID.ToString()) || !VerifyHelper.isSafe(reqModel.reqData[0].progressValue.ToString()))
@@ -423,7 +423,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
@@ -465,7 +465,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -533,7 +533,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -580,7 +580,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -638,7 +638,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0].noticeTitle) || !VerifyHelper.isSafe(reqModel.reqData[0].noticeContent) || !VerifyHelper.isSafe(reqModel.reqData[0].noticeFile))
@@ -691,7 +691,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0].noticeTitle) || !VerifyHelper.isSafe(reqModel.reqData[0].noticeContent) || !VerifyHelper.isSafe(reqModel.reqData[0].noticeFile))
@@ -739,7 +739,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -787,7 +787,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -854,7 +854,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
@@ -901,7 +901,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]) || !VerifyHelper.isSafe(reqModel.reqData[1]))
@@ -968,7 +968,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (!VerifyHelper.isSafe(reqModel.reqData[0]) || !VerifyHelper.isSafe(reqModel.reqData[1]))
@@ -1017,7 +1017,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -1066,7 +1066,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -1115,7 +1115,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)

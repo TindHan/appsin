@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getBind();
     bindEvent();
+    I18n.init();
 });
 
 function getBind() {

@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getwkey();
     login();
+    I18n.init();
 });
 
 function login() {
@@ -87,5 +88,12 @@ function bindEvent() {
                 Swal.fire("Error!", result.message, "error");
             }
         })
+    })
+
+    $("#lanCN").on("click", function () {
+        I18n.setLang('CN')
+    })
+    $("#lanEN").on("click", function () {
+        I18n.setLang('EN')
     })
 }

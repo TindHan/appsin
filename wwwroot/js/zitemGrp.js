@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getItemDetail();
     bindEvent();
+    I18n.init();
 })
 
 function getItemDetail() {

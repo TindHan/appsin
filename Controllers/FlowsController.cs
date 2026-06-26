@@ -21,10 +21,10 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
-            else if (reqModel.reqData.Count <= 0 )
+            else if (reqModel.reqData.Count <= 0)
             {
                 res.status = 0;
                 res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
@@ -85,7 +85,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -199,7 +199,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0 || !VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
@@ -253,7 +253,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -311,7 +311,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -368,7 +368,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -472,7 +472,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -529,7 +529,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -606,7 +606,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -664,7 +664,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -722,7 +722,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -779,7 +779,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -836,7 +836,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count < 3 || reqModel.reqData.Count > 3)
@@ -972,7 +972,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -1029,7 +1029,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -1083,7 +1083,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -1128,6 +1128,158 @@ namespace appsin.Controllers
                     res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
                     res.message = "There is no data,please retry or contact administrator!";
                     res.resData = null;
+                }
+            }
+            return res;
+        }
+
+
+        [HttpPost(Name = "changeApprover")]
+        public ResponseSet<nextApprover> changeApprover([FromBody] RequestSet<string> reqModel)
+        {
+            ResponseSet<nextApprover> res = new ResponseSet<nextApprover>();
+            if (reqModel.uToken == null || VerifyHelper.getPsnID(reqModel.uToken) <= 0)
+            {
+                res.status = -1;
+                res.uToken = "";
+                res.message = "Incorrect uToken!";
+                res.resData = null;
+            }
+            else if (reqModel.reqData.Count != 2)
+            {
+                res.status = 0;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "Request Success,but no correct data input!";
+                res.resData = null;
+            }
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0]) || !VerifyHelper.isSafe(reqModel.reqData[1]))
+            {
+                res.status = 110;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "High risk characters!";
+                res.resData = null;
+            }
+            else if (!VerifyHelper.IsConvertToInt(reqModel.reqData[0]) || !VerifyHelper.IsConvertToInt(reqModel.reqData[1]))
+            {
+                res.status = -11;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "Incorrect ID type!";
+                res.resData = null;
+            }
+            else
+            {
+                bool isApproved = new Bizcs.BLL.flow_approveLog().isNodeApproved(int.Parse(reqModel.reqData[0]));
+                if (!isApproved)
+                {
+                    Bizcs.BLL.app_messages msgBll = new Bizcs.BLL.app_messages();
+                    Bizcs.Model.app_messages msgModel = msgBll.GetModel(int.Parse(reqModel.reqData[0]));
+                    int previousPsnID = msgModel.objID;
+                    msgModel.objID = int.Parse(reqModel.reqData[1]);
+                    bool iss = msgBll.Update(msgModel);
+
+                    if (iss)
+                    {
+                        LogHelper.logRecord(VerifyHelper.getPsnID(reqModel.uToken), "Change approver", "Success", "msgID:" + reqModel.reqData[0] + " from psnID: " + previousPsnID + " to psnID:" + reqModel.reqData[1], "Done", "approveFlow");
+
+                        res.status = 1;
+                        res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                        res.message = "The approver has been changed successfully!";
+                        res.resData = null;
+                    }
+                    else
+                    {
+                        res.status = -11;
+                        res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                        res.message = "There is something wrong occured,please retry or contact administrator!";
+                        res.resData = null;
+                    }
+                }
+                else
+                {
+                    res.status = -1;
+                    res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                    res.message = "This node have been approved, cannot change approver!";
+                    res.resData = null;
+                }
+            }
+            return res;
+        }
+
+        [HttpPost(Name = "removeApprover")]
+        public ResponseSet<nextApprover> removeApprover([FromBody] RequestSet<string> reqModel)
+        {
+            ResponseSet<nextApprover> res = new ResponseSet<nextApprover>();
+            if (reqModel.uToken == null || VerifyHelper.getPsnID(reqModel.uToken) <= 0)
+            {
+                res.status = -1;
+                res.uToken = "";
+                res.message = "Incorrect uToken!";
+                res.resData = null;
+            }
+            else if (reqModel.reqData.Count != 1)
+            {
+                res.status = 0;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "Request Success,but no correct data input!";
+                res.resData = null;
+            }
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
+            {
+                res.status = 110;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "High risk characters!";
+                res.resData = null;
+            }
+            else if (!VerifyHelper.IsConvertToInt(reqModel.reqData[0]))
+            {
+                res.status = -11;
+                res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                res.message = "Incorrect ID type!";
+                res.resData = null;
+            }
+            else
+            {
+                Bizcs.BLL.app_messages msgBll = new Bizcs.BLL.app_messages();
+                bool isApproved = new Bizcs.BLL.flow_approveLog().isNodeApproved(int.Parse(reqModel.reqData[0]));
+                DataSet dsApprover = msgBll.GetList("bizType='WorkFlow' and bizID=" + reqModel.reqData[0] + " and msgStatus=1");
+
+                if (isApproved)
+                {
+                    res.status = -1;
+                    res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                    res.message = "This node have been approved, cannot remove approver!";
+                    res.resData = null;
+                }
+                else if(dsApprover==null && dsApprover.Tables[0].Rows.Count <= 1)
+                {
+                    res.status = -1;
+                    res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                    res.message = "There is only one approver, cannot be removed!";
+                    res.resData = null;
+                }
+                else
+                {
+                    Bizcs.Model.app_messages msgModel = msgBll.GetModel(int.Parse(reqModel.reqData[0]));
+                    int previousPsnID = msgModel.objID;
+                    msgModel.msgStatus = 0;
+                    bool iss = msgBll.Update(msgModel);
+
+                    if (iss)
+                    {
+                        LogHelper.logRecord(VerifyHelper.getPsnID(reqModel.uToken), "Remove approver", "Success", "msgID:" + reqModel.reqData[0] , "Done", "approveFlow");
+
+                        res.status = 1;
+                        res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                        res.message = "the approver has ben removed successfully!";
+                        res.resData = null;
+                    }
+                    else
+                    {
+                        res.status = -11;
+                        res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                        res.message = "There is something wrong occured,please retry or contact administrator!";
+                        res.resData = null;
+                    }
                 }
             }
             return res;

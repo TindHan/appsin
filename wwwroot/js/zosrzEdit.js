@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     bindEvent();
     getRole();
+    I18n.init();
 })
 
 function getRole() {

@@ -5,6 +5,7 @@
         $("#mtt").html("New Func Role");
         $("#showModal").modal("show");
     })
+    I18n.init();
 })
 
 function queryList(pageIndex) {

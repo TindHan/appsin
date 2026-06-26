@@ -1,5 +1,6 @@
 ﻿jQuery(function ($) {
     getKw();
+    I18n.init();
 });
 
 function getKw() {

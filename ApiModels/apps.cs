@@ -6,7 +6,8 @@ namespace appsin.Models
     {
         public int menuID { get; set; }
         public int parentID { get; set; }
-        public string menuName { get; set; }
+        public string menuNameEN { get; set; }
+        public string menuNameCN { get; set; }
         public int menuAppID { get; set; }
         public int menuLevel { get; set; }
         public string menuType { get; set; }
@@ -23,7 +24,8 @@ namespace appsin.Models
         public string menuID { get; set; }
         public string parentID { get; set; }
         public string appName { get; set; }
-        public string menuName { get; set; }
+        public string menuNameEN { get; set; }
+        public string menuNameCN { get; set; }
         public string menuType { get; set; }
         public string menuDesc { get; set; }
         public string menuIcon { get; set; }

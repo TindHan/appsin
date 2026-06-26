@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     bindOrg();
     bindEvent();
+    I18n.init();
 });
 
 function bindOrg() {

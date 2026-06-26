@@ -1,5 +1,6 @@
 ﻿jQuery(function ($) {
 	bindEvent();
+	I18n.init();
 })
 
 function bindEvent() {

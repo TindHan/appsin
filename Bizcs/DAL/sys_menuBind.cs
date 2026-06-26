@@ -219,8 +219,9 @@ namespace appsin.Bizcs.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select bindID, ");
-            strSql.Append("(select menuName from sys_menu m where m.menuID = b.menuID) as menuName ,");
-            strSql.Append("(select menuName from sys_menu m where m.menuID = (select parentID from sys_menu p where p.menuID = b.menuID)) as moduleName ,");
+            strSql.Append("(select menuNameEN from sys_menu m where m.menuID = b.menuID) as menuNameEN ,");
+            strSql.Append("(select menuNameCN from sys_menu m where m.menuID = b.menuID) as menuNameCN ,");
+            strSql.Append("(select menuNameEN from sys_menu m where m.menuID = (select parentID from sys_menu p where p.menuID = b.menuID)) as moduleName ,");
             strSql.Append("(select appName from app_appMain a where a.appID = (select menuAppID from sys_menu p where p.menuID = b.menuID)) as appName ,");
             strSql.Append("(select psnName from psn_psnMain psn where psn.psnID = b.createUser) as createUserName,");
             strSql.Append("createTime,bindStatus");

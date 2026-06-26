@@ -5,9 +5,9 @@ This system is targeted at department-level applications of enterprises with les
 
 The original design intention of this system is to address the issue of rapidly developing customized applications within the current framework of artificial intelligence capabilities to meet the informatization needs of enterprises. Although artificial intelligence currently has strong development capabilities, for demands with high business complexity such as enterprise information management systems, At present, effective understanding and development are still impossible. This system has completed the complex and common parts of the underlying business logic. When enterprises use this system for customized development, they only need to focus on the development of the actual business part, which greatly simplifies the business complexity and fully utilizes the current artificial intelligence provided Develop the ability to quickly build an information system that suits one's own needs.
 
-This system contains two programs: the APPSIN main program and the integrated application demonstration program. This programs is the main program. Both programs are in English and currently do not support multiple languages.
+This system contains two programs: the APPSIN main program and the integrated application demonstration program. This programs is the main program. The main program supports both Chinese and English (currently only some functions support Chinese), and the integrated application demonstration program is in English version.
 
-The front end of the APPSIN main program is developed using bootstrap and jquery, and the back end is developed with NET10, Integrating the front-end and back-end into a single program，the database adopts MS SQL SERVER 2016, and the development tool is Visual Studio 2022.
+The front end of the APPSIN main program is developed using bootstrap and jquery, and the back end is developed with NET10, Integrating the front-end and back-end into a single program, the database adopts MS SQL SERVER 2016, and the development tool is Visual Studio 2022.
 
 The APPSIN integrated application demonstration program is developed using React and Antd, and the backend developed with NET10, the front-end and back-end are separate programs, the database uses My SQL 8.0.18, and the development tool is Visual studio 2022.
 
@@ -19,14 +19,14 @@ The main program and the integrated application use the HTML iframe component to
 
 More information, you can look for the introducation page "wwwroot/ReadMe_EN.html", thank you for your attention.
 
-Chinese introduction：
+
 APPSIN跨域异构应用一体化集成系统介绍
 
 该系统定位于1000用户以下的企业部门级应用，其最大特点是可以使用任何开发语言、数据库、中间件、服务器开发和部署该系统的定制化应用，并获得一体化系统的使用体验。该套程序已经 完成了企业信息管理系统所需的基本的组织管理、用户管理、权限管理、日志管理，登录登出等基本功能，企业只需使用熟悉的技术栈开发和部署自己所需要的实际业务功能，并将应用注册到 APPSIN主程序中，便可在APPSIN系统内使用自己开发的集成应用。
 
 该系统设计初衷是解决在目前人工智能能力框架下，进行快速开发定制化应用满足企业信息化需求。目前人工智能虽然具备较强的开发能力，但是对于企业信息管理系统这样业务复杂度较高的需求， 目前还无法进行有效的理解和开发。该系统已经完成底层业务逻辑复杂和通用部分，企业在使用本系统定制开发时，只需关注实际业务部分的开发，大幅度简化业务复杂度，充分利用目前人工智能提供的 开发能力，从而快速构建起适合自身需要的信息系统。
 
-该系统包含APPSIN主程序和集成应用演示程序两套程序文件，本套程序是主程序。两套程序均为英文版，目前尚未支持多语言。
+该系统包含APPSIN主程序和集成应用演示程序两套程序文件，本套程序是主程序。主程序支持中英文双语（目前仅部分功能支持中文），演示程序为英文版。
 
 APPSIN主程序前端采用bootstrap和jquery开发，后端采用.NET10开发，前后端集成为一套程序，数据库采用MS SQL SERVER 2016，开发工具为Visual Studio 2022。
 

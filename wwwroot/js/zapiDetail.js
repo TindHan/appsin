@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     getApp();
     bindEvent();
+    I18n.init();
 });
 
 function getApp() {

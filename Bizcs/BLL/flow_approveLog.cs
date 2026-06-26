@@ -105,6 +105,20 @@ namespace appsin.Bizcs.BLL
         {
             return dal.GetLogList(strWhere,parms);
         }
+        public bool isNodeApproved(int msgID)
+        {
+            DataSet ds= dal.isNodeApproved(msgID);
+            if (ds != null) { return false; }
+            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         #endregion  ExtensionMethod
+
     }
 }

@@ -15,7 +15,7 @@ $(function () {
     initDefaultNodes();
     bindEvents();
     bindResize();
-
+    I18n.init();
 });
 
 /* 默认节点（ID固定） */

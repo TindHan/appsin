@@ -1,5 +1,6 @@
 ﻿jQuery(function ($) {
     bindType();
+    I18n.init();
 });
 function bindType() {
     var obj = new Object();

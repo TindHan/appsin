@@ -9,7 +9,8 @@
         private string _menupk;
         private int? _parentid;
         private string _parentpk;
-        private string _menuname;
+        private string _menunameen;
+        private string _menunamecn;
         private int? _menuappid;
         private int? _menulevel;
         private string _menutype;
@@ -60,10 +61,18 @@
         /// <summary>
         /// 
         /// </summary>
-        public string menuName
+        public string menuNameEN
         {
-            set { _menuname = value; }
-            get { return _menuname; }
+            set { _menunameen = value; }
+            get { return _menunameen; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string menuNameCN
+        {
+            set { _menunamecn = value; }
+            get { return _menunamecn; }
         }
         /// <summary>
         /// 

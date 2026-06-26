@@ -2,7 +2,7 @@
     getBind(1);
     getObjList();
     bindEventOnload();
-
+    I18n.init();
 })
 
 function queryList(pageIndex) {

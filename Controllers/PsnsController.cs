@@ -174,7 +174,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -190,7 +190,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count == 0)
@@ -404,7 +404,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -473,7 +473,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -598,7 +598,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             else if (reqModel.reqData.Count <= 0)
@@ -618,7 +618,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "Arguments contain high risk characters!";
+                res.message = "The arguments contain high-risk characters!";
                 res.resData = null;
             }
             else
@@ -774,7 +774,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -813,7 +813,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -852,7 +852,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -929,7 +929,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -986,7 +986,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -1067,7 +1067,7 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
             }
             return res;
@@ -1144,8 +1144,58 @@ namespace appsin.Controllers
             {
                 res.status = -1;
                 res.uToken = "";
-                res.message = "uToken is invalid!";
+                res.message = "Incorrect uToken!";
                 res.resData = null;
+            }
+            return res;
+        }
+
+        [HttpPost(Name = "getSearch")]
+        public ResponseSet<iPsnSech> getSearch([FromBody] RequestSet<string> reqModel)
+        {
+            ResponseSet<iPsnSech> res = new ResponseSet<iPsnSech>();
+            int psnID = VerifyHelper.getPsnID(reqModel.uToken);
+            if (reqModel.uToken == null && psnID <= 0)
+            {
+                res.status = -1;
+                res.uToken = "";
+                res.message = "Incorrect uToken!";
+                res.resData = null;
+            }
+            else if (!VerifyHelper.isSafe(reqModel.reqData[0]))
+            {
+                res.status = -1;
+                res.uToken = "";
+                res.message = "The arguments contain high-risk characters!";
+                res.resData = null;
+            }
+            else
+            {
+                Bizcs.BLL.psn_psnMain psnBll = new Bizcs.BLL.psn_psnMain();
+
+                string keyWord = reqModel.reqData[0];
+
+                List<SqlParameter> parms = new List<SqlParameter>();
+                parms.Add(new SqlParameter("@psnName", $"%{keyWord}%"));
+                parms.Add(new SqlParameter("@psnCode", $"%{keyWord}%"));
+
+                DataSet dsPsn = psnBll.GetSimpleList(" (psnName like @psnName or psnCode like @psnCode) and psnStatus=1 and loginStatus=1 ", parms.ToArray());
+                if (dsPsn.Tables[0] != null && dsPsn.Tables[0].Rows.Count > 0)
+                {
+                    List<iPsnSech> psnList = listHelper.ConvertDtToList<iPsnSech>(dsPsn.Tables[0]);
+
+                    res.status = 1;
+                    res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                    res.message = "Query Success!";
+                    res.resData = psnList;
+                }
+                else
+                {
+                    res.status = 1;
+                    res.uToken = VerifyHelper.updateTokenStr(reqModel.uToken);
+                    res.message = "Query Success,but no data!";
+                    res.resData = null;
+                }
             }
             return res;
         }

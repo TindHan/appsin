@@ -7,14 +7,15 @@
 </head>
 <body style="padding:25px">
     <div id="top" class="h-25">&nbsp;</div>
-    <h3>Introduction to APPSIN Cross-Domain Heterogeneous Application Integrated System</h3>
+    <h3>Introduction to APPSIN Cross-Domain Heterogeneous Application Integrated System Version: 1.1</h3>
     <div style="border: 1px solid darkgrey; background-color: #F0F0F0;padding:15px">
         This document is divided into three parts:：<br />
         <a href="#c1">1.Basic introduction of the system</a><br />
         <a href="#c2">2.Introduction to the Main functions of the system</a><br />
         <a href="#c3">3.System technical documentation description</a><br />
-        Please click on the above three parts to jump to the corresponding content. <br />
-        I plan to release a new version before 30-06-2026. The whole system was designed and developed independently by myself, so there are many possible problems, if you have any advice or spot some bugs, welcome to contact me by email. <br />
+        <a href="#c4">4.Explanation of function updates</a><br />
+        Please click on the above four parts to jump to the corresponding content. <br />
+        I plan to release a new version before 30-12-2026. The whole system was designed and developed independently by myself, so there are many possible problems, if you have any advice or spot some bugs, welcome to contact me by email. <br />
         My Email: apassenger@msn.com. By the way, I am currently looking for a job in Australia or New Zealand, if you know of any suitable opportunities and think I might be qualify for, please feel free to conntact me, I would be really grateful.
     </div>
     <div id="c1" class="mt-5">
@@ -30,7 +31,7 @@
                 At present, effective understanding and development are still impossible. This system has completed the complex and common parts of the underlying business logic. When enterprises use this system for customized development, they only need to focus on the development of the actual business part, which greatly simplifies the business complexity and fully utilizes the current artificial intelligence provided
                 Develop the ability to quickly build an information system that suits one's own needs
             </p>
-            <p>This system contains two programs: the APPSIN main program and the integrated application demonstration program. This programs is the main program. Both programs are in English and currently do not support multiple languages.</p>
+            <p>This system contains two programs: the APPSIN main program and the integrated application demonstration program. This programs is the main program. The main program supports both Chinese and English (currently only some functions support Chinese), and the integrated application demonstration program is in English version.</p>
             <p>The front end of the APPSIN main program is developed using bootstrap and jquery, and the back end is developed with NET10, Integrating the front-end and back-end into a single program，the database adopts MS SQL SERVER 2016, and the development tool is Visual Studio 2022.</p>
             <p>The APPSIN integrated application demonstration program is developed using React and Antd, and the backend developed with NET10, the front-end and back-end are separate programs, the database uses My SQL 8.0.18, and the development tool is Visual studio 2022.</p>
             <p>
@@ -72,7 +73,7 @@
                 8. The APIs provided by the main program of APPSIN can be viewed in the Apis- Api list menu on the console page.
             </p>
             <p>
-                9. The database files are located in the "DB" folder within the program files. You can directly attach the database files to MS SQL SERVER, and then complete the connection between the program and the database by modifying the "connectString" database connection string in the "appsettings.json" file. 
+                9. The database files are located in the "DB" folder within the program files. You can directly attach the database files to MS SQL SERVER, and then complete the connection between the program and the database by modifying the "connectString" database connection string in the "appsettings.json" file.
             </p>
             <p>
                 10. In this program file, the database file contains demonstration data. If you wish to remove the demonstration data, please use the "initialize.sql" script in the "DB" folder to do so.
@@ -401,7 +402,7 @@
 
             </p>
             <pre>
-                <code>
+            <code>
                     //The function of get authorization key
                     public static string genAukey()
                     {
@@ -438,6 +439,17 @@
         </div>
         <a href="#top">TOP</a>
     </div>
-
+    <div id="c4" class="mt-5">
+        <h4>
+            4.Explanation of function updates
+        </h4>
+        <div style="padding-left:15px">
+            <p>Updated on June 30, 2026:</p>
+            <p>#Chinese language support, currently only the login page, main page, and menu are fully supported, and other pages are being gradually adapted. </p>
+            <p>#The approver in the approval process supports removal and replacement, solving the problem of personnel change and stagnant approval process. </p>
+            <p>#Personnel photo maintenance supports cropping during the upload process to ensure photo proportion and size</p>
+        </div>
+        <a href="#top">Top</a>
+    </div>
 </body>
 </html>
